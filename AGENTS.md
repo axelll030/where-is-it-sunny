@@ -38,3 +38,5 @@ Build a small, useful, low-maintenance travel website that helps users compare d
 ## First implementation task
 
 Follow Milestone 1 in `docs/ROADMAP.md`: scaffold Astro with React/TypeScript, validate one NASA POWER climatology request, and render a simple 12-month temperature display for a representative Crete location. Keep this vertical slice small and testable.
+
+After completing a milestone, update docs/ROADMAP.md to reflect the actual implementation status. Update README.md when setup instructions or supported functionality change. Avoid unnecessary documentation changes.

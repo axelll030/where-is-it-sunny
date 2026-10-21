@@ -1,0 +1,104 @@
+---
+import climate from '../data/destinations/heraklion-crete.json';
+import type { DestinationClimate } from '../data/climate';
+
+const destination = climate as DestinationClimate;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Historical monthly average temperatures for a representative location in Heraklion, Crete."
+    />
+    <title>Heraklion, Crete monthly temperatures | Where Is It Sunny?</title>
+  </head>
+  <body>
+    <main>
+      <h1>{destination.destination.name}</h1>
+      <p>
+        Historical monthly mean air temperature at 2 metres for a representative location. These are
+        climate averages, not a forecast for a particular trip.
+      </p>
+
+      <table>
+        <caption>
+          {destination.climate.period.description} average temperature
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Month</th>
+            <th scope="col">Average temperature</th>
+          </tr>
+        </thead>
+        <tbody>
+          {destination.climate.months.map(({ label, meanCelsius }) => (
+            <tr>
+              <th scope="row">{label}</th>
+              <td>{meanCelsius.toFixed(1)} °C</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <section aria-labelledby="data-source">
+        <h2 id="data-source">Data source</h2>
+        <p>
+          <a href={destination.source.documentationUrl}>{destination.source.name}</a> parameter
+          {' '}{destination.source.parameter} ({destination.source.parameterName}), supplied in
+          degrees Celsius. The API response used {destination.source.dataSources.join(', ')} and
+          reported a missing-value marker of {destination.source.fillValue}.
+        </p>
+        <p>
+          Requested representative coordinates: {destination.destination.coordinates.latitude}° N,
+          {' '}{destination.destination.coordinates.longitude}° E. Returned grid point:
+          {' '}{destination.destination.returnedCoordinates.latitude}° N,
+          {' '}{destination.destination.returnedCoordinates.longitude}° E at
+          {' '}{destination.destination.returnedCoordinates.elevationMeters} m. Retrieved
+          {' '}{destination.source.retrievedAt}.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(body) {
+    color: #1b2630;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  main {
+    margin: 0 auto;
+    max-width: 42rem;
+    padding: 2rem 1rem 4rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+
+  caption {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  th,
+  td {
+    border: 1px solid #b9c4cc;
+    padding: 0.6rem;
+    text-align: left;
+  }
+
+  thead {
+    background: #eaf4f8;
+  }
+</style>

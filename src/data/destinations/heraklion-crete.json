@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "destination": {
+    "id": "heraklion-crete",
+    "name": "Heraklion, Crete",
+    "coordinates": {
+      "latitude": 35.3387,
+      "longitude": 25.1442
+    },
+    "returnedCoordinates": {
+      "longitude": 25.144,
+      "latitude": 35.339,
+      "elevationMeters": 106.28
+    }
+  },
+  "climate": {
+    "metric": "mean-temperature-at-2m",
+    "unit": "°C",
+    "period": {
+      "startYear": 1991,
+      "endYear": 2020,
+      "description": "January 1991–December 2020"
+    },
+    "months": [
+      {
+        "month": 1,
+        "label": "January",
+        "meanCelsius": 12.75
+      },
+      {
+        "month": 2,
+        "label": "February",
+        "meanCelsius": 12.65
+      },
+      {
+        "month": 3,
+        "label": "March",
+        "meanCelsius": 13.87
+      },
+      {
+        "month": 4,
+        "label": "April",
+        "meanCelsius": 16.17
+      },
+      {
+        "month": 5,
+        "label": "May",
+        "meanCelsius": 19.75
+      },
+      {
+        "month": 6,
+        "label": "June",
+        "meanCelsius": 23.53
+      },
+      {
+        "month": 7,
+        "label": "July",
+        "meanCelsius": 25.55
+      },
+      {
+        "month": 8,
+        "label": "August",
+        "meanCelsius": 25.84
+      },
+      {
+        "month": 9,
+        "label": "September",
+        "meanCelsius": 24.03
+      },
+      {
+        "month": 10,
+        "label": "October",
+        "meanCelsius": 20.99
+      },
+      {
+        "month": 11,
+        "label": "November",
+        "meanCelsius": 17.64
+      },
+      {
+        "month": 12,
+        "label": "December",
+        "meanCelsius": 14.45
+      }
+    ]
+  },
+  "source": {
+    "name": "NASA POWER",
+    "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M&community=RE&longitude=25.1442&latitude=35.3387&format=JSON&start=1991&end=2020",
+    "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+    "parameter": "T2M",
+    "parameterName": "Temperature at 2 Meters",
+    "apiVersion": "v2.10.1",
+    "dataSources": [
+      "MERRA2"
+    ],
+    "fillValue": -999,
+    "retrievedAt": "2026-10-21"
+  }
+}
