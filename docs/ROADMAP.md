@@ -6,7 +6,7 @@ This roadmap is deliberately small. Work through milestones in order. Each miles
 
 - [x] Define product purpose, technical boundaries, and initial MVP
 - [x] Create README, AGENTS, roadmap, and gitignore
-- [ ] Commit repository foundation
+- [x] Commit repository foundation
 
 ## Milestone 1 — Data proof of concept
 
@@ -32,12 +32,20 @@ This roadmap is deliberately small. Work through milestones in order. Each miles
 
 ## Milestone 2 — Curated destinations and filters
 
-- [ ] Define stable destination metadata and representative coordinates
-- [ ] Curate an initial 10 destinations, then expand toward 30
-- [ ] Add validated monthly precipitation and solar-radiation metrics
-- [ ] Implement month, temperature, and rainfall filters
-- [ ] Show responsive destination cards and meaningful empty states
-- [ ] Add data validation tests
+- [x] Define stable destination metadata and representative coordinates
+- [x] Curate an initial 10 destinations, then expand toward 30
+- [x] Add validated monthly precipitation and solar-radiation metrics
+- [x] Implement month, temperature, and rainfall filters
+- [x] Show responsive destination cards and meaningful empty states
+- [x] Add data validation tests
+
+### Milestone 2 decisions and limitations
+
+- The initial curated set contains 10 stable destination IDs. Their labels and representative request coordinates live in `scripts/destinations.mjs`; generated climate records are kept separately in `src/data/destinations.json`.
+- The filters operate on the selected month's historical mean temperature and estimated monthly precipitation. They run in a small React island; the initial card list is still rendered into the static HTML.
+- NASA POWER `PRECTOTCORR` is returned in mm/day. The displayed and filtered monthly precipitation value multiplies that daily climatological average by the number of calendar days in the selected month. It is an amount of precipitation, not a count of rainy days.
+- `ALLSKY_SFC_SW_DWN` is displayed as all-sky surface shortwave downward irradiance in kWh/m²/day. It is a solar-radiation indicator, not hours of sunshine.
+- The 1991–2020 requests report SRB, SYN1DEG, and MERRA-2 provenance. These data describe representative grid points and should not be read as local forecasts or precise conditions across an entire destination.
 
 ## Milestone 3 — Comparison and destination pages
 

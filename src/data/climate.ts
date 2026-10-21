@@ -1,7 +1,10 @@
 export interface MonthlyTemperature {
   month: number;
   label: string;
-  meanCelsius: number;
+  meanTemperatureCelsius: number;
+  meanDailyPrecipitationMm: number;
+  meanMonthlyPrecipitationMm: number;
+  meanDailySolarRadiationKwhM2: number;
 }
 
 export interface DestinationClimate {
@@ -9,6 +12,7 @@ export interface DestinationClimate {
   destination: {
     id: string;
     name: string;
+    country: string;
     coordinates: {
       latitude: number;
       longitude: number;
@@ -20,8 +24,6 @@ export interface DestinationClimate {
     };
   };
   climate: {
-    metric: 'mean-temperature-at-2m';
-    unit: '°C';
     period: {
       startYear: number;
       endYear: number;
@@ -33,8 +35,17 @@ export interface DestinationClimate {
     name: string;
     apiUrl: string;
     documentationUrl: string;
-    parameter: 'T2M';
-    parameterName: string;
+    parameters: {
+      temperature: { code: 'T2M'; name: string; unit: '°C' };
+      precipitation: {
+        code: 'PRECTOTCORR';
+        name: string;
+        sourceUnit: 'mm/day';
+        displayedUnit: 'mm per month';
+        conversion: string;
+      };
+      solarRadiation: { code: 'ALLSKY_SFC_SW_DWN'; name: string; unit: 'kWh/m²/day' };
+    };
     apiVersion: string;
     dataSources: string[];
     fillValue: number;

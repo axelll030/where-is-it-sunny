@@ -1,0 +1,1542 @@
+[
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "heraklion-crete",
+      "name": "Heraklion, Crete",
+      "country": "Greece",
+      "coordinates": {
+        "latitude": 35.3387,
+        "longitude": 25.1442
+      },
+      "returnedCoordinates": {
+        "longitude": 25.144,
+        "latitude": 35.339,
+        "elevationMeters": 106.28
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 12.75,
+          "meanDailyPrecipitationMm": 3.02,
+          "meanMonthlyPrecipitationMm": 93.62,
+          "meanDailySolarRadiationKwhM2": 2.2971
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 12.65,
+          "meanDailyPrecipitationMm": 2.67,
+          "meanMonthlyPrecipitationMm": 74.76,
+          "meanDailySolarRadiationKwhM2": 3.0932
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 13.87,
+          "meanDailyPrecipitationMm": 1.58,
+          "meanMonthlyPrecipitationMm": 48.98,
+          "meanDailySolarRadiationKwhM2": 4.4451
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 16.17,
+          "meanDailyPrecipitationMm": 0.77,
+          "meanMonthlyPrecipitationMm": 23.1,
+          "meanDailySolarRadiationKwhM2": 5.8078
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 19.75,
+          "meanDailyPrecipitationMm": 0.47,
+          "meanMonthlyPrecipitationMm": 14.57,
+          "meanDailySolarRadiationKwhM2": 6.8682
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 23.53,
+          "meanDailyPrecipitationMm": 0.17,
+          "meanMonthlyPrecipitationMm": 5.1,
+          "meanDailySolarRadiationKwhM2": 7.705
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 25.55,
+          "meanDailyPrecipitationMm": 0.07,
+          "meanMonthlyPrecipitationMm": 2.17,
+          "meanDailySolarRadiationKwhM2": 7.6211
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 25.84,
+          "meanDailyPrecipitationMm": 0.12,
+          "meanMonthlyPrecipitationMm": 3.72,
+          "meanDailySolarRadiationKwhM2": 6.8662
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 24.03,
+          "meanDailyPrecipitationMm": 0.58,
+          "meanMonthlyPrecipitationMm": 17.4,
+          "meanDailySolarRadiationKwhM2": 5.5699
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 20.99,
+          "meanDailyPrecipitationMm": 1.53,
+          "meanMonthlyPrecipitationMm": 47.43,
+          "meanDailySolarRadiationKwhM2": 3.9564
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 17.64,
+          "meanDailyPrecipitationMm": 2.13,
+          "meanMonthlyPrecipitationMm": 63.9,
+          "meanDailySolarRadiationKwhM2": 2.7027
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 14.45,
+          "meanDailyPrecipitationMm": 2.99,
+          "meanMonthlyPrecipitationMm": 92.69,
+          "meanDailySolarRadiationKwhM2": 2.0279
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.1442&latitude=35.3387&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "faro-algarve",
+      "name": "Faro, Algarve",
+      "country": "Portugal",
+      "coordinates": {
+        "latitude": 37.0194,
+        "longitude": -7.9304
+      },
+      "returnedCoordinates": {
+        "longitude": -7.93,
+        "latitude": 37.019,
+        "elevationMeters": 54.06
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 12.91,
+          "meanDailyPrecipitationMm": 1.84,
+          "meanMonthlyPrecipitationMm": 57.04,
+          "meanDailySolarRadiationKwhM2": 2.54
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 13.03,
+          "meanDailyPrecipitationMm": 1.73,
+          "meanMonthlyPrecipitationMm": 48.44,
+          "meanDailySolarRadiationKwhM2": 3.4983
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 14.45,
+          "meanDailyPrecipitationMm": 1.87,
+          "meanMonthlyPrecipitationMm": 57.97,
+          "meanDailySolarRadiationKwhM2": 4.665
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 15.85,
+          "meanDailyPrecipitationMm": 1.82,
+          "meanMonthlyPrecipitationMm": 54.6,
+          "meanDailySolarRadiationKwhM2": 5.7154
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 18.3,
+          "meanDailyPrecipitationMm": 1.11,
+          "meanMonthlyPrecipitationMm": 34.41,
+          "meanDailySolarRadiationKwhM2": 6.73
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 21.34,
+          "meanDailyPrecipitationMm": 0.22,
+          "meanMonthlyPrecipitationMm": 6.6,
+          "meanDailySolarRadiationKwhM2": 7.6293
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 23.48,
+          "meanDailyPrecipitationMm": 0.04,
+          "meanMonthlyPrecipitationMm": 1.24,
+          "meanDailySolarRadiationKwhM2": 7.8698
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 23.63,
+          "meanDailyPrecipitationMm": 0.1,
+          "meanMonthlyPrecipitationMm": 3.1,
+          "meanDailySolarRadiationKwhM2": 7.0046
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 21.86,
+          "meanDailyPrecipitationMm": 0.75,
+          "meanMonthlyPrecipitationMm": 22.5,
+          "meanDailySolarRadiationKwhM2": 5.4074
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 19.36,
+          "meanDailyPrecipitationMm": 2.15,
+          "meanMonthlyPrecipitationMm": 66.65,
+          "meanDailySolarRadiationKwhM2": 3.8412
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 16.01,
+          "meanDailyPrecipitationMm": 2.83,
+          "meanMonthlyPrecipitationMm": 84.9,
+          "meanDailySolarRadiationKwhM2": 2.7694
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 14.03,
+          "meanDailyPrecipitationMm": 2.75,
+          "meanMonthlyPrecipitationMm": 85.25,
+          "meanDailySolarRadiationKwhM2": 2.2165
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-7.9304&latitude=37.0194&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "malaga-andalusia",
+      "name": "Málaga, Andalusia",
+      "country": "Spain",
+      "coordinates": {
+        "latitude": 36.7213,
+        "longitude": -4.4214
+      },
+      "returnedCoordinates": {
+        "longitude": -4.421,
+        "latitude": 36.721,
+        "elevationMeters": 144.54
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 12.8,
+          "meanDailyPrecipitationMm": 1.92,
+          "meanMonthlyPrecipitationMm": 59.52,
+          "meanDailySolarRadiationKwhM2": 2.6614
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 13.01,
+          "meanDailyPrecipitationMm": 1.85,
+          "meanMonthlyPrecipitationMm": 51.8,
+          "meanDailySolarRadiationKwhM2": 3.517
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 14.25,
+          "meanDailyPrecipitationMm": 1.82,
+          "meanMonthlyPrecipitationMm": 56.42,
+          "meanDailySolarRadiationKwhM2": 4.6989
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 15.63,
+          "meanDailyPrecipitationMm": 1.51,
+          "meanMonthlyPrecipitationMm": 45.3,
+          "meanDailySolarRadiationKwhM2": 5.8735
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 18.1,
+          "meanDailyPrecipitationMm": 0.88,
+          "meanMonthlyPrecipitationMm": 27.28,
+          "meanDailySolarRadiationKwhM2": 6.8654
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 21.21,
+          "meanDailyPrecipitationMm": 0.25,
+          "meanMonthlyPrecipitationMm": 7.5,
+          "meanDailySolarRadiationKwhM2": 7.6617
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 23.9,
+          "meanDailyPrecipitationMm": 0.02,
+          "meanMonthlyPrecipitationMm": 0.62,
+          "meanDailySolarRadiationKwhM2": 7.6529
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 24.54,
+          "meanDailyPrecipitationMm": 0.1,
+          "meanMonthlyPrecipitationMm": 3.1,
+          "meanDailySolarRadiationKwhM2": 6.7612
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 22.12,
+          "meanDailyPrecipitationMm": 0.93,
+          "meanMonthlyPrecipitationMm": 27.9,
+          "meanDailySolarRadiationKwhM2": 5.2806
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 19.16,
+          "meanDailyPrecipitationMm": 1.87,
+          "meanMonthlyPrecipitationMm": 57.97,
+          "meanDailySolarRadiationKwhM2": 3.8569
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 15.71,
+          "meanDailyPrecipitationMm": 2.45,
+          "meanMonthlyPrecipitationMm": 73.5,
+          "meanDailySolarRadiationKwhM2": 2.803
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 13.75,
+          "meanDailyPrecipitationMm": 2.53,
+          "meanMonthlyPrecipitationMm": 78.43,
+          "meanDailySolarRadiationKwhM2": 2.29
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-4.4214&latitude=36.7213&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SYN1DEG",
+        "SRB",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "santa-cruz-tenerife",
+      "name": "Santa Cruz de Tenerife",
+      "country": "Spain",
+      "coordinates": {
+        "latitude": 28.4636,
+        "longitude": -16.2518
+      },
+      "returnedCoordinates": {
+        "longitude": -16.252,
+        "latitude": 28.464,
+        "elevationMeters": 178.78
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 17.13,
+          "meanDailyPrecipitationMm": 1.01,
+          "meanMonthlyPrecipitationMm": 31.31,
+          "meanDailySolarRadiationKwhM2": 3.4571
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 16.88,
+          "meanDailyPrecipitationMm": 1.08,
+          "meanMonthlyPrecipitationMm": 30.24,
+          "meanDailySolarRadiationKwhM2": 4.2176
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 17.27,
+          "meanDailyPrecipitationMm": 0.77,
+          "meanMonthlyPrecipitationMm": 23.87,
+          "meanDailySolarRadiationKwhM2": 5.3139
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 17.88,
+          "meanDailyPrecipitationMm": 0.53,
+          "meanMonthlyPrecipitationMm": 15.9,
+          "meanDailySolarRadiationKwhM2": 6.1682
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 19.02,
+          "meanDailyPrecipitationMm": 0.25,
+          "meanMonthlyPrecipitationMm": 7.75,
+          "meanDailySolarRadiationKwhM2": 6.6787
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 20.49,
+          "meanDailyPrecipitationMm": 0.13,
+          "meanMonthlyPrecipitationMm": 3.9,
+          "meanDailySolarRadiationKwhM2": 6.8254
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 21.47,
+          "meanDailyPrecipitationMm": 0.1,
+          "meanMonthlyPrecipitationMm": 3.1,
+          "meanDailySolarRadiationKwhM2": 6.4893
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 22.38,
+          "meanDailyPrecipitationMm": 0.16,
+          "meanMonthlyPrecipitationMm": 4.96,
+          "meanDailySolarRadiationKwhM2": 6.2597
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 22.6,
+          "meanDailyPrecipitationMm": 0.34,
+          "meanMonthlyPrecipitationMm": 10.2,
+          "meanDailySolarRadiationKwhM2": 5.6739
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 21.94,
+          "meanDailyPrecipitationMm": 0.77,
+          "meanMonthlyPrecipitationMm": 23.87,
+          "meanDailySolarRadiationKwhM2": 4.5473
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 20.06,
+          "meanDailyPrecipitationMm": 1.01,
+          "meanMonthlyPrecipitationMm": 30.3,
+          "meanDailySolarRadiationKwhM2": 3.5296
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 18.44,
+          "meanDailyPrecipitationMm": 1.24,
+          "meanMonthlyPrecipitationMm": 38.44,
+          "meanDailySolarRadiationKwhM2": 3.1249
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-16.2518&latitude=28.4636&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "arrecife-lanzarote",
+      "name": "Arrecife, Lanzarote",
+      "country": "Spain",
+      "coordinates": {
+        "latitude": 28.963,
+        "longitude": -13.5477
+      },
+      "returnedCoordinates": {
+        "longitude": -13.548,
+        "latitude": 28.963,
+        "elevationMeters": 26.63
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 17.64,
+          "meanDailyPrecipitationMm": 0.45,
+          "meanMonthlyPrecipitationMm": 13.95,
+          "meanDailySolarRadiationKwhM2": 3.5289
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 17.42,
+          "meanDailyPrecipitationMm": 0.53,
+          "meanMonthlyPrecipitationMm": 14.84,
+          "meanDailySolarRadiationKwhM2": 4.267
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 17.83,
+          "meanDailyPrecipitationMm": 0.39,
+          "meanMonthlyPrecipitationMm": 12.09,
+          "meanDailySolarRadiationKwhM2": 5.4128
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 18.35,
+          "meanDailyPrecipitationMm": 0.24,
+          "meanMonthlyPrecipitationMm": 7.2,
+          "meanDailySolarRadiationKwhM2": 6.2618
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 19.4,
+          "meanDailyPrecipitationMm": 0.1,
+          "meanMonthlyPrecipitationMm": 3.1,
+          "meanDailySolarRadiationKwhM2": 6.787
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 20.76,
+          "meanDailyPrecipitationMm": 0.04,
+          "meanMonthlyPrecipitationMm": 1.2,
+          "meanDailySolarRadiationKwhM2": 6.8529
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 21.72,
+          "meanDailyPrecipitationMm": 0.03,
+          "meanMonthlyPrecipitationMm": 0.93,
+          "meanDailySolarRadiationKwhM2": 6.539
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 22.65,
+          "meanDailyPrecipitationMm": 0.08,
+          "meanMonthlyPrecipitationMm": 2.48,
+          "meanDailySolarRadiationKwhM2": 6.1979
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 22.88,
+          "meanDailyPrecipitationMm": 0.2,
+          "meanMonthlyPrecipitationMm": 6,
+          "meanDailySolarRadiationKwhM2": 5.572
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 22.33,
+          "meanDailyPrecipitationMm": 0.51,
+          "meanMonthlyPrecipitationMm": 15.81,
+          "meanDailySolarRadiationKwhM2": 4.57
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 20.55,
+          "meanDailyPrecipitationMm": 0.54,
+          "meanMonthlyPrecipitationMm": 16.2,
+          "meanDailySolarRadiationKwhM2": 3.6384
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 18.9,
+          "meanDailyPrecipitationMm": 0.65,
+          "meanMonthlyPrecipitationMm": 20.15,
+          "meanDailySolarRadiationKwhM2": 3.2183
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-13.5477&latitude=28.963&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SYN1DEG",
+        "MERRA2",
+        "SRB"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "paphos-cyprus",
+      "name": "Paphos",
+      "country": "Cyprus",
+      "coordinates": {
+        "latitude": 34.7754,
+        "longitude": 32.4218
+      },
+      "returnedCoordinates": {
+        "longitude": 32.422,
+        "latitude": 34.775,
+        "elevationMeters": 333.95
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 11.06,
+          "meanDailyPrecipitationMm": 2.56,
+          "meanMonthlyPrecipitationMm": 79.36,
+          "meanDailySolarRadiationKwhM2": 2.6477
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 11.3,
+          "meanDailyPrecipitationMm": 1.84,
+          "meanMonthlyPrecipitationMm": 51.52,
+          "meanDailySolarRadiationKwhM2": 3.5607
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 13.18,
+          "meanDailyPrecipitationMm": 1.12,
+          "meanMonthlyPrecipitationMm": 34.72,
+          "meanDailySolarRadiationKwhM2": 4.934
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 16.22,
+          "meanDailyPrecipitationMm": 0.64,
+          "meanMonthlyPrecipitationMm": 19.2,
+          "meanDailySolarRadiationKwhM2": 6.1392
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 20.26,
+          "meanDailyPrecipitationMm": 0.43,
+          "meanMonthlyPrecipitationMm": 13.33,
+          "meanDailySolarRadiationKwhM2": 7.15
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 24.35,
+          "meanDailyPrecipitationMm": 0.16,
+          "meanMonthlyPrecipitationMm": 4.8,
+          "meanDailySolarRadiationKwhM2": 7.89
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 26.97,
+          "meanDailyPrecipitationMm": 0.08,
+          "meanMonthlyPrecipitationMm": 2.48,
+          "meanDailySolarRadiationKwhM2": 7.6763
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 27.21,
+          "meanDailyPrecipitationMm": 0.09,
+          "meanMonthlyPrecipitationMm": 2.79,
+          "meanDailySolarRadiationKwhM2": 6.9383
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 24.79,
+          "meanDailyPrecipitationMm": 0.3,
+          "meanMonthlyPrecipitationMm": 9,
+          "meanDailySolarRadiationKwhM2": 5.9305
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 21.48,
+          "meanDailyPrecipitationMm": 0.84,
+          "meanMonthlyPrecipitationMm": 26.04,
+          "meanDailySolarRadiationKwhM2": 4.4143
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 16.85,
+          "meanDailyPrecipitationMm": 1.69,
+          "meanMonthlyPrecipitationMm": 50.7,
+          "meanDailySolarRadiationKwhM2": 3.1244
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 12.95,
+          "meanDailyPrecipitationMm": 2.84,
+          "meanMonthlyPrecipitationMm": 88.04,
+          "meanDailySolarRadiationKwhM2": 2.4603
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=32.4218&latitude=34.7754&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "valletta-malta",
+      "name": "Valletta",
+      "country": "Malta",
+      "coordinates": {
+        "latitude": 35.8989,
+        "longitude": 14.5146
+      },
+      "returnedCoordinates": {
+        "longitude": 14.515,
+        "latitude": 35.899,
+        "elevationMeters": 4.38
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 14.53,
+          "meanDailyPrecipitationMm": 2.4,
+          "meanMonthlyPrecipitationMm": 74.4,
+          "meanDailySolarRadiationKwhM2": 2.5456
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 13.94,
+          "meanDailyPrecipitationMm": 2.13,
+          "meanMonthlyPrecipitationMm": 59.64,
+          "meanDailySolarRadiationKwhM2": 3.5074
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 14.62,
+          "meanDailyPrecipitationMm": 1.51,
+          "meanMonthlyPrecipitationMm": 46.81,
+          "meanDailySolarRadiationKwhM2": 4.7383
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 16,
+          "meanDailyPrecipitationMm": 1.05,
+          "meanMonthlyPrecipitationMm": 31.5,
+          "meanDailySolarRadiationKwhM2": 5.9555
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 18.72,
+          "meanDailyPrecipitationMm": 0.53,
+          "meanMonthlyPrecipitationMm": 16.43,
+          "meanDailySolarRadiationKwhM2": 6.9928
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 22.46,
+          "meanDailyPrecipitationMm": 0.32,
+          "meanMonthlyPrecipitationMm": 9.6,
+          "meanDailySolarRadiationKwhM2": 7.59
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 25.36,
+          "meanDailyPrecipitationMm": 0.14,
+          "meanMonthlyPrecipitationMm": 4.34,
+          "meanDailySolarRadiationKwhM2": 7.6465
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 26.58,
+          "meanDailyPrecipitationMm": 0.36,
+          "meanMonthlyPrecipitationMm": 11.16,
+          "meanDailySolarRadiationKwhM2": 6.8367
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 24.97,
+          "meanDailyPrecipitationMm": 2,
+          "meanMonthlyPrecipitationMm": 60,
+          "meanDailySolarRadiationKwhM2": 5.3301
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 22.62,
+          "meanDailyPrecipitationMm": 2.55,
+          "meanMonthlyPrecipitationMm": 79.05,
+          "meanDailySolarRadiationKwhM2": 3.8782
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 19.47,
+          "meanDailyPrecipitationMm": 3.02,
+          "meanMonthlyPrecipitationMm": 90.6,
+          "meanDailySolarRadiationKwhM2": 2.7335
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 16.26,
+          "meanDailyPrecipitationMm": 2.75,
+          "meanMonthlyPrecipitationMm": 85.25,
+          "meanDailySolarRadiationKwhM2": 2.2336
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=14.5146&latitude=35.8989&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "antalya-turkiye",
+      "name": "Antalya",
+      "country": "Türkiye",
+      "coordinates": {
+        "latitude": 36.8969,
+        "longitude": 30.7133
+      },
+      "returnedCoordinates": {
+        "longitude": 30.713,
+        "latitude": 36.897,
+        "elevationMeters": 455.92
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 7.02,
+          "meanDailyPrecipitationMm": 5.15,
+          "meanMonthlyPrecipitationMm": 159.65,
+          "meanDailySolarRadiationKwhM2": 2.3787
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 7.89,
+          "meanDailyPrecipitationMm": 3.44,
+          "meanMonthlyPrecipitationMm": 96.32,
+          "meanDailySolarRadiationKwhM2": 3.2067
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 10.58,
+          "meanDailyPrecipitationMm": 2.53,
+          "meanMonthlyPrecipitationMm": 78.43,
+          "meanDailySolarRadiationKwhM2": 4.4704
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 14.45,
+          "meanDailyPrecipitationMm": 1.82,
+          "meanMonthlyPrecipitationMm": 54.6,
+          "meanDailySolarRadiationKwhM2": 5.7566
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 19.38,
+          "meanDailyPrecipitationMm": 1.37,
+          "meanMonthlyPrecipitationMm": 42.47,
+          "meanDailySolarRadiationKwhM2": 6.8364
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 24.5,
+          "meanDailyPrecipitationMm": 0.51,
+          "meanMonthlyPrecipitationMm": 15.3,
+          "meanDailySolarRadiationKwhM2": 7.7763
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 28.43,
+          "meanDailyPrecipitationMm": 0.23,
+          "meanMonthlyPrecipitationMm": 7.13,
+          "meanDailySolarRadiationKwhM2": 7.8144
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 28.8,
+          "meanDailyPrecipitationMm": 0.19,
+          "meanMonthlyPrecipitationMm": 5.89,
+          "meanDailySolarRadiationKwhM2": 6.9275
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 24.79,
+          "meanDailyPrecipitationMm": 0.68,
+          "meanMonthlyPrecipitationMm": 20.4,
+          "meanDailySolarRadiationKwhM2": 5.7111
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 19.39,
+          "meanDailyPrecipitationMm": 2.01,
+          "meanMonthlyPrecipitationMm": 62.31,
+          "meanDailySolarRadiationKwhM2": 4.0503
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 13.37,
+          "meanDailyPrecipitationMm": 3,
+          "meanMonthlyPrecipitationMm": 90,
+          "meanDailySolarRadiationKwhM2": 2.8434
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 8.94,
+          "meanDailyPrecipitationMm": 5.31,
+          "meanMonthlyPrecipitationMm": 164.61,
+          "meanDailySolarRadiationKwhM2": 2.1504
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=30.7133&latitude=36.8969&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "dubai-uae",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "coordinates": {
+        "latitude": 25.2048,
+        "longitude": 55.2708
+      },
+      "returnedCoordinates": {
+        "longitude": 55.271,
+        "latitude": 25.205,
+        "elevationMeters": 20.89
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 20.1,
+          "meanDailyPrecipitationMm": 0.76,
+          "meanMonthlyPrecipitationMm": 23.56,
+          "meanDailySolarRadiationKwhM2": 3.8013
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 20.7,
+          "meanDailyPrecipitationMm": 0.39,
+          "meanMonthlyPrecipitationMm": 10.92,
+          "meanDailySolarRadiationKwhM2": 4.5898
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 22.9,
+          "meanDailyPrecipitationMm": 0.59,
+          "meanMonthlyPrecipitationMm": 18.29,
+          "meanDailySolarRadiationKwhM2": 5.3854
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 26.6,
+          "meanDailyPrecipitationMm": 0.24,
+          "meanMonthlyPrecipitationMm": 7.2,
+          "meanDailySolarRadiationKwhM2": 6.3875
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 30.36,
+          "meanDailyPrecipitationMm": 0.09,
+          "meanMonthlyPrecipitationMm": 2.79,
+          "meanDailySolarRadiationKwhM2": 7.1855
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 32.92,
+          "meanDailyPrecipitationMm": 0.08,
+          "meanMonthlyPrecipitationMm": 2.4,
+          "meanDailySolarRadiationKwhM2": 7.2876
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 34.81,
+          "meanDailyPrecipitationMm": 0.04,
+          "meanMonthlyPrecipitationMm": 1.24,
+          "meanDailySolarRadiationKwhM2": 6.7867
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 35.35,
+          "meanDailyPrecipitationMm": 0.04,
+          "meanMonthlyPrecipitationMm": 1.24,
+          "meanDailySolarRadiationKwhM2": 6.4861
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 33.33,
+          "meanDailyPrecipitationMm": 0.06,
+          "meanMonthlyPrecipitationMm": 1.8,
+          "meanDailySolarRadiationKwhM2": 6.0116
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 30.47,
+          "meanDailyPrecipitationMm": 0.04,
+          "meanMonthlyPrecipitationMm": 1.24,
+          "meanDailySolarRadiationKwhM2": 5.1738
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 26.42,
+          "meanDailyPrecipitationMm": 0.22,
+          "meanMonthlyPrecipitationMm": 6.6,
+          "meanDailySolarRadiationKwhM2": 4.239
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 22.44,
+          "meanDailyPrecipitationMm": 0.45,
+          "meanMonthlyPrecipitationMm": 13.95,
+          "meanDailySolarRadiationKwhM2": 3.6356
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=55.2708&latitude=25.2048&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SYN1DEG",
+        "MERRA2",
+        "SRB"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "destination": {
+      "id": "cape-town-south-africa",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "coordinates": {
+        "latitude": -33.9249,
+        "longitude": 18.4241
+      },
+      "returnedCoordinates": {
+        "longitude": 18.424,
+        "latitude": -33.925,
+        "elevationMeters": 18.82
+      }
+    },
+    "climate": {
+      "period": {
+        "startYear": 1991,
+        "endYear": 2020,
+        "description": "January 1991–December 2020"
+      },
+      "months": [
+        {
+          "month": 1,
+          "label": "January",
+          "meanTemperatureCelsius": 20.03,
+          "meanDailyPrecipitationMm": 0.39,
+          "meanMonthlyPrecipitationMm": 12.09,
+          "meanDailySolarRadiationKwhM2": 8.3787
+        },
+        {
+          "month": 2,
+          "label": "February",
+          "meanTemperatureCelsius": 20.3,
+          "meanDailyPrecipitationMm": 0.35,
+          "meanMonthlyPrecipitationMm": 9.8,
+          "meanDailySolarRadiationKwhM2": 7.497
+        },
+        {
+          "month": 3,
+          "label": "March",
+          "meanTemperatureCelsius": 19.37,
+          "meanDailyPrecipitationMm": 0.52,
+          "meanMonthlyPrecipitationMm": 16.12,
+          "meanDailySolarRadiationKwhM2": 6.103
+        },
+        {
+          "month": 4,
+          "label": "April",
+          "meanTemperatureCelsius": 17.73,
+          "meanDailyPrecipitationMm": 1.24,
+          "meanMonthlyPrecipitationMm": 37.2,
+          "meanDailySolarRadiationKwhM2": 4.4713
+        },
+        {
+          "month": 5,
+          "label": "May",
+          "meanTemperatureCelsius": 16.48,
+          "meanDailyPrecipitationMm": 1.57,
+          "meanMonthlyPrecipitationMm": 48.67,
+          "meanDailySolarRadiationKwhM2": 3.1436
+        },
+        {
+          "month": 6,
+          "label": "June",
+          "meanTemperatureCelsius": 15.06,
+          "meanDailyPrecipitationMm": 2.77,
+          "meanMonthlyPrecipitationMm": 83.1,
+          "meanDailySolarRadiationKwhM2": 2.6157
+        },
+        {
+          "month": 7,
+          "label": "July",
+          "meanTemperatureCelsius": 14.34,
+          "meanDailyPrecipitationMm": 2.43,
+          "meanMonthlyPrecipitationMm": 75.33,
+          "meanDailySolarRadiationKwhM2": 2.9083
+        },
+        {
+          "month": 8,
+          "label": "August",
+          "meanTemperatureCelsius": 14.27,
+          "meanDailyPrecipitationMm": 2.12,
+          "meanMonthlyPrecipitationMm": 65.72,
+          "meanDailySolarRadiationKwhM2": 3.7184
+        },
+        {
+          "month": 9,
+          "label": "September",
+          "meanTemperatureCelsius": 14.94,
+          "meanDailyPrecipitationMm": 1.3,
+          "meanMonthlyPrecipitationMm": 39,
+          "meanDailySolarRadiationKwhM2": 5.0586
+        },
+        {
+          "month": 10,
+          "label": "October",
+          "meanTemperatureCelsius": 16.17,
+          "meanDailyPrecipitationMm": 0.98,
+          "meanMonthlyPrecipitationMm": 30.38,
+          "meanDailySolarRadiationKwhM2": 6.5982
+        },
+        {
+          "month": 11,
+          "label": "November",
+          "meanTemperatureCelsius": 17.43,
+          "meanDailyPrecipitationMm": 0.89,
+          "meanMonthlyPrecipitationMm": 26.7,
+          "meanDailySolarRadiationKwhM2": 7.7729
+        },
+        {
+          "month": 12,
+          "label": "December",
+          "meanTemperatureCelsius": 19.09,
+          "meanDailyPrecipitationMm": 0.42,
+          "meanMonthlyPrecipitationMm": 13.02,
+          "meanDailySolarRadiationKwhM2": 8.4138
+        }
+      ]
+    },
+    "source": {
+      "name": "NASA POWER",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=18.4241&latitude=-33.9249&format=JSON&start=1991&end=2020",
+      "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": {
+        "temperature": {
+          "code": "T2M",
+          "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "precipitation": {
+          "code": "PRECTOTCORR",
+          "name": "Precipitation Corrected",
+          "sourceUnit": "mm/day",
+          "displayedUnit": "mm per month",
+          "conversion": "Daily climatological precipitation multiplied by the calendar days in each month."
+        },
+        "solarRadiation": {
+          "code": "ALLSKY_SFC_SW_DWN",
+          "name": "All Sky Surface Shortwave Downward Irradiance",
+          "unit": "kWh/m²/day"
+        }
+      },
+      "apiVersion": "v2.10.1",
+      "dataSources": [
+        "SRB",
+        "SYN1DEG",
+        "MERRA2"
+      ],
+      "fillValue": -999,
+      "retrievedAt": "2026-10-21"
+    }
+  }
+]

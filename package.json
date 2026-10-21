@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "typecheck": "astro check",
     "test": "node --test",
-    "fetch:climate": "node scripts/fetch-heraklion-climate.mjs"
+    "fetch:climate": "node scripts/fetch-destinations-climate.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

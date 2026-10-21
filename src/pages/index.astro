@@ -1,8 +1,9 @@
 ---
-import climate from '../data/destinations/heraklion-crete.json';
+import destinations from '../data/destinations.json';
 import type { DestinationClimate } from '../data/climate';
+import DestinationFilters from '../components/DestinationFilters';
 
-const destination = climate as DestinationClimate;
+const climateDestinations = destinations as DestinationClimate[];
 ---
 
 <!doctype html>
@@ -12,53 +13,33 @@ const destination = climate as DestinationClimate;
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Historical monthly average temperatures for a representative location in Heraklion, Crete."
+      content="Compare historical monthly climate averages for curated holiday destinations."
     />
-    <title>Heraklion, Crete monthly temperatures | Where Is It Sunny?</title>
+    <title>Where Is It Sunny?</title>
   </head>
   <body>
     <main>
-      <h1>{destination.destination.name}</h1>
+      <h1>Where is it sunny?</h1>
       <p>
-        Historical monthly mean air temperature at 2 metres for a representative location. These are
-        climate averages, not a forecast for a particular trip.
+        Compare historical climate averages for representative points. These are not forecasts for a
+        particular trip.
       </p>
-
-      <table>
-        <caption>
-          {destination.climate.period.description} average temperature
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Month</th>
-            <th scope="col">Average temperature</th>
-          </tr>
-        </thead>
-        <tbody>
-          {destination.climate.months.map(({ label, meanCelsius }) => (
-            <tr>
-              <th scope="row">{label}</th>
-              <td>{meanCelsius.toFixed(1)} °C</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <DestinationFilters client:load destinations={climateDestinations} />
 
       <section aria-labelledby="data-source">
         <h2 id="data-source">Data source</h2>
         <p>
-          <a href={destination.source.documentationUrl}>{destination.source.name}</a> parameter
-          {' '}{destination.source.parameter} ({destination.source.parameterName}), supplied in
-          degrees Celsius. The API response used {destination.source.dataSources.join(', ')} and
-          reported a missing-value marker of {destination.source.fillValue}.
+          Values are from <a href={climateDestinations[0].source.documentationUrl}>NASA POWER</a> for
+          {' '}{climateDestinations[0].climate.period.description}. Temperature is mean air temperature
+          at 2 metres. Rainfall is corrected precipitation, converted from daily averages to an estimated
+          calendar-month total. Solar radiation is all-sky surface shortwave downward irradiance—not
+          hours of sunshine.
         </p>
         <p>
-          Requested representative coordinates: {destination.destination.coordinates.latitude}° N,
-          {' '}{destination.destination.coordinates.longitude}° E. Returned grid point:
-          {' '}{destination.destination.returnedCoordinates.latitude}° N,
-          {' '}{destination.destination.returnedCoordinates.longitude}° E at
-          {' '}{destination.destination.returnedCoordinates.elevationMeters} m. Retrieved
-          {' '}{destination.source.retrievedAt}.
+          The API response used {climateDestinations[0].source.dataSources.join(', ')} and reports
+          {' '}a missing-value marker of {climateDestinations[0].source.fillValue}; missing values are
+          rejected during generation. Each destination represents a returned grid point, not all local
+          microclimates.
         </p>
       </section>
     </main>
@@ -79,26 +60,4 @@ const destination = climate as DestinationClimate;
     padding: 2rem 1rem 4rem;
   }
 
-  table {
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    width: 100%;
-  }
-
-  caption {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-align: left;
-  }
-
-  th,
-  td {
-    border: 1px solid #b9c4cc;
-    padding: 0.6rem;
-    text-align: left;
-  }
-
-  thead {
-    background: #eaf4f8;
-  }
 </style>

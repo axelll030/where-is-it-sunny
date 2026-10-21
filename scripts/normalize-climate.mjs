@@ -4,15 +4,32 @@ export const monthLabels = [
   ['SEP', 'September'], ['OCT', 'October'], ['NOV', 'November'], ['DEC', 'December'],
 ];
 
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function requireParameter(payload, code, units, longname) {
+  const parameter = payload?.parameters?.[code];
+  if (parameter?.units !== units || parameter?.longname !== longname) {
+    throw new Error(`NASA POWER response did not identify ${code} as ${longname} in ${units}.`);
+  }
+  return parameter;
+}
+
+function requireValue(values, key, fillValue, code) {
+  const value = values?.[key];
+  if (!Number.isFinite(value) || value === fillValue) {
+    throw new Error(`NASA POWER returned a missing or invalid ${code} value for ${key}.`);
+  }
+  return value;
+}
+
 export function normalizeClimateResponse(payload, { destination, period, apiUrl, retrievedAt }) {
-  const values = payload?.properties?.parameter?.T2M;
-  const details = payload?.parameters?.T2M;
+  const parameters = payload?.properties?.parameter;
   const fillValue = payload?.header?.fill_value;
   const coordinates = payload?.geometry?.coordinates;
 
-  if (details?.units !== 'C' || details?.longname !== 'Temperature at 2 Meters') {
-    throw new Error('NASA POWER response did not identify T2M as temperature at 2 metres in Celsius.');
-  }
+  const temperature = requireParameter(payload, 'T2M', 'C', 'Temperature at 2 Meters');
+  const precipitation = requireParameter(payload, 'PRECTOTCORR', 'mm/day', 'Precipitation Corrected');
+  const solarRadiation = requireParameter(payload, 'ALLSKY_SFC_SW_DWN', 'kW-hr/m^2/day', 'All Sky Surface Shortwave Downward Irradiance');
   if (!Number.isFinite(fillValue) || !Array.isArray(coordinates) || coordinates.length < 3) {
     throw new Error('NASA POWER response is missing its fill value or representative point metadata.');
   }
@@ -21,11 +38,15 @@ export function normalizeClimateResponse(payload, { destination, period, apiUrl,
   }
 
   const months = monthLabels.map(([key, label], index) => {
-    const value = values?.[key];
-    if (!Number.isFinite(value) || value === fillValue) {
-      throw new Error(`NASA POWER returned a missing or invalid T2M value for ${key}.`);
-    }
-    return { month: index + 1, label, meanCelsius: value };
+    const precipitationDailyMm = requireValue(parameters?.PRECTOTCORR, key, fillValue, 'PRECTOTCORR');
+    return {
+      month: index + 1,
+      label,
+      meanTemperatureCelsius: requireValue(parameters?.T2M, key, fillValue, 'T2M'),
+      meanDailyPrecipitationMm: precipitationDailyMm,
+      meanMonthlyPrecipitationMm: Number((precipitationDailyMm * daysInMonth[index]).toFixed(2)),
+      meanDailySolarRadiationKwhM2: requireValue(parameters?.ALLSKY_SFC_SW_DWN, key, fillValue, 'ALLSKY_SFC_SW_DWN'),
+    };
   });
 
   return {
@@ -33,6 +54,7 @@ export function normalizeClimateResponse(payload, { destination, period, apiUrl,
     destination: {
       id: destination.id,
       name: destination.name,
+      country: destination.country,
       coordinates: { latitude: destination.latitude, longitude: destination.longitude },
       returnedCoordinates: {
         longitude: coordinates[0],
@@ -41,8 +63,6 @@ export function normalizeClimateResponse(payload, { destination, period, apiUrl,
       },
     },
     climate: {
-      metric: 'mean-temperature-at-2m',
-      unit: '°C',
       period: {
         ...period,
         description: `January ${period.startYear}–December ${period.endYear}`,
@@ -53,8 +73,17 @@ export function normalizeClimateResponse(payload, { destination, period, apiUrl,
       name: 'NASA POWER',
       apiUrl,
       documentationUrl: 'https://power.larc.nasa.gov/docs/services/api/temporal/climatology/',
-      parameter: 'T2M',
-      parameterName: details.longname,
+      parameters: {
+        temperature: { code: 'T2M', name: temperature.longname, unit: '°C' },
+        precipitation: {
+          code: 'PRECTOTCORR',
+          name: precipitation.longname,
+          sourceUnit: precipitation.units,
+          displayedUnit: 'mm per month',
+          conversion: 'Daily climatological precipitation multiplied by the calendar days in each month.',
+        },
+        solarRadiation: { code: 'ALLSKY_SFC_SW_DWN', name: solarRadiation.longname, unit: 'kWh/m²/day' },
+      },
       apiVersion: payload.header.api.version,
       dataSources: payload.header.sources,
       fillValue,
