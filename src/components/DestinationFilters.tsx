@@ -48,7 +48,7 @@ export default function DestinationFilters({ destinations }: Props) {
         <div className="destination-grid">
           {matches.map(({ destination, climate }) => (
             <article className="destination-card" key={destination.destination.id}>
-              <h3>{destination.destination.name}</h3>
+              <h3><a href={`/destinations/${destination.destination.id}/`}>{destination.destination.name}</a></h3>
               <p>{destination.destination.country}</p>
               <dl>
                 <div><dt>Average temperature</dt><dd>{climate.meanTemperatureCelsius.toFixed(1)} °C</dd></div>

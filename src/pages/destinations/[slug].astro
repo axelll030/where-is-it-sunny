@@ -1,0 +1,62 @@
+---
+import destinations from '../../data/destinations.json';
+import type { DestinationClimate } from '../../data/climate';
+import ClimateTable from '../../components/ClimateTable.astro';
+
+export function getStaticPaths() {
+  return (destinations as DestinationClimate[]).map((destination) => ({
+    params: { slug: destination.destination.id },
+    props: { destination },
+  }));
+}
+
+const { destination } = Astro.props as { destination: DestinationClimate };
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content={`Historical monthly climate averages for a representative point near ${destination.destination.name}.`}
+    />
+    <title>{destination.destination.name} climate averages | Where Is It Sunny?</title>
+  </head>
+  <body>
+    <main>
+      <p><a href="/">← Find destinations</a></p>
+      <h1>{destination.destination.name}</h1>
+      <p>{destination.destination.country}. Historical averages for a representative grid point, not a forecast for a particular holiday.</p>
+
+      <ClimateTable destination={destination} />
+
+      <section aria-labelledby="representative-location">
+        <h2 id="representative-location">Representative location</h2>
+        <p>
+          Requested coordinates: {destination.destination.coordinates.latitude}°, {destination.destination.coordinates.longitude}°.
+          NASA POWER returned a point at {destination.destination.returnedCoordinates.latitude}°,
+          {' '}{destination.destination.returnedCoordinates.longitude}° and
+          {' '}{destination.destination.returnedCoordinates.elevationMeters} m elevation.
+        </p>
+        <p>Climate conditions can differ across a city, island, or wider region because of elevation, coastlines, exposure, and local weather patterns.</p>
+      </section>
+
+      <section aria-labelledby="data-notes">
+        <h2 id="data-notes">Data notes</h2>
+        <p>
+          Source: <a href={destination.source.documentationUrl}>{destination.source.name}</a>,
+          {' '}{destination.climate.period.description}. Solar radiation is not sunshine duration;
+          rainfall is an estimated monthly amount, not a number of rainy days.
+        </p>
+        <p><a href="/methodology/">Methodology and attribution</a></p>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(body) { color: #1b2630; font-family: system-ui, sans-serif; line-height: 1.5; margin: 0; }
+  main { margin: 0 auto; max-width: 70rem; padding: 2rem 1rem 4rem; }
+</style>

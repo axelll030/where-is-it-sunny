@@ -1,0 +1,41 @@
+---
+import type { DestinationClimate } from '../data/climate';
+
+interface Props {
+  destination: DestinationClimate;
+}
+
+const { destination } = Astro.props;
+---
+
+<div class="table-wrap" tabindex="0" aria-label="Monthly climate table">
+  <table>
+    <caption>{destination.climate.period.description} historical climate averages</caption>
+    <thead>
+      <tr>
+        <th scope="col">Month</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Rainfall</th>
+        <th scope="col">Solar radiation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {destination.climate.months.map((month) => (
+        <tr>
+          <th scope="row">{month.label}</th>
+          <td>{month.meanTemperatureCelsius.toFixed(1)} °C</td>
+          <td>{month.meanMonthlyPrecipitationMm.toFixed(0)} mm/month</td>
+          <td>{month.meanDailySolarRadiationKwhM2.toFixed(1)} kWh/m²/day</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; min-width: 42rem; width: 100%; }
+  caption { font-weight: 700; margin: 0.5rem 0; text-align: left; }
+  th, td { border: 1px solid #b9c4cc; padding: 0.55rem; text-align: left; }
+  thead { background: #eaf4f8; }
+</style>

@@ -1,0 +1,56 @@
+.comparison-selects {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin: 1rem 0;
+}
+
+.comparison-selects label {
+  font-weight: 700;
+}
+
+.comparison-selects select {
+  box-sizing: border-box;
+  display: block;
+  font: inherit;
+  margin-top: 0.25rem;
+  padding: 0.45rem;
+  width: 100%;
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  border-collapse: collapse;
+  min-width: 38rem;
+  width: 100%;
+}
+
+.comparison-table caption {
+  font-weight: 700;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid #b9c4cc;
+  padding: 0.55rem;
+  text-align: left;
+}
+
+.comparison-table thead {
+  background: #eaf4f8;
+}
+
+.comparison-table strong,
+.comparison-table span {
+  display: block;
+}
+
+.comparison-table span {
+  color: #52616c;
+  font-size: 0.9rem;
+}

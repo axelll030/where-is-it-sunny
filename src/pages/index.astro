@@ -1,6 +1,7 @@
 ---
 import destinations from '../data/destinations.json';
 import type { DestinationClimate } from '../data/climate';
+import DestinationComparison from '../components/DestinationComparison';
 import DestinationFilters from '../components/DestinationFilters';
 
 const climateDestinations = destinations as DestinationClimate[];
@@ -25,6 +26,7 @@ const climateDestinations = destinations as DestinationClimate[];
         particular trip.
       </p>
       <DestinationFilters client:load destinations={climateDestinations} />
+      <DestinationComparison client:load destinations={climateDestinations} />
 
       <section aria-labelledby="data-source">
         <h2 id="data-source">Data source</h2>
@@ -41,6 +43,7 @@ const climateDestinations = destinations as DestinationClimate[];
           rejected during generation. Each destination represents a returned grid point, not all local
           microclimates.
         </p>
+        <p><a href="/methodology/">Read the methodology and data attribution.</a></p>
       </section>
     </main>
   </body>
@@ -56,7 +59,7 @@ const climateDestinations = destinations as DestinationClimate[];
 
   main {
     margin: 0 auto;
-    max-width: 42rem;
+    max-width: 70rem;
     padding: 2rem 1rem 4rem;
   }
 
