@@ -1,6 +1,6 @@
 # Where Is It Sunny? ☀️
 
-A lightweight travel discovery website that helps people find holiday destinations with favorable **historical climate conditions** for a chosen month.
+A lightweight static travel discovery website that helps people compare **historical climate conditions** for a chosen month.
 
 > Find your next sunny escape.
 
@@ -12,14 +12,11 @@ This is **not** a live weather forecast or a guarantee of future conditions. All
 
 ## MVP
 
-- Curated list of approximately 30 destinations, expandable to 50
-- Monthly historical temperature and precipitation data
-- A clearly labeled solar-radiation or sunshine-related indicator, subject to source validation
-- Filters for month, minimum temperature, and rain tolerance
-- Comparison of two destinations
-- Responsive, accessible interface
-- Static, search-engine-friendly destination and month pages
-- Methodology/data-sources page
+- Ten curated destinations with stable IDs and representative coordinates
+- Monthly mean temperature, average daily high, estimated monthly rainfall, and solar radiation
+- Filters for month, minimum mean temperature, and maximum rainfall
+- A two-destination comparison and statically generated destination pages
+- Dependency-free temperature charts and a methodology/data-attribution page
 
 ## Stack
 
@@ -34,20 +31,31 @@ No database, authentication, custom server, or live API requests from visitors i
 
 ## Data approach
 
-A small, curated destination list provides stable IDs, labels, coordinates, and editorial metadata. A build-time TypeScript script fetches climate data for representative locations, validates units and missing values, computes monthly summaries as appropriate, and saves versioned JSON for the website.
+A small, curated destination list provides stable IDs, labels, and coordinates. A build-time Node script fetches NASA POWER climatology data for representative points, rejects missing or out-of-range measurements, checks dataset-wide period and unit consistency, and saves static JSON for the website.
 
 **Important:** Solar irradiance is not sunshine duration. Do not label solar-radiation values as “hours of sunshine.” Likewise, do not label precipitation totals as rainy-day counts. Check the source's units, temporal aggregation, and licensing before publishing any metric.
 
 Climate measurements for an island or region describe a **representative point**, not every microclimate within it.
 
+`T2M` is shown as mean 2-metre air temperature. Average daily high uses NASA POWER's `T2M_MAX_AVG`; the similarly named `T2M_MAX` is a monthly extreme and is deliberately not presented as a typical high.
+
 ## Project status
 
-Planning / initial setup. See [the roadmap](docs/ROADMAP.md).
+Milestones 0â€“3 are complete. Milestone 4 is in progress; see [the roadmap](docs/ROADMAP.md) for current limitations.
 
 ## Development
 
-Setup and run commands will be added after the Astro application is scaffolded.
+Install dependencies with `npm install`, then use:
+
+```sh
+npm run dev
+npm run test
+npm run typecheck
+npm run build
+```
+
+To refresh the committed static climate data, run `npm run fetch:climate`. This makes live requests to NASA POWER; visitors do not.
 
 ## Licensing and attribution
 
-Code licensing is undecided. Climate data attribution, reuse terms, and methodology will be documented before public launch. Do not assume all third-party images or datasets are commercially reusable.
+Code licensing is undecided. The methodology page attributes NASA POWER and records the data-use decision made for this project: use factual source attribution, do not use NASA identifiers or imply NASA endorsement, and recheck the applicable terms before any commercial launch. Do not assume third-party images or datasets are commercially reusable.

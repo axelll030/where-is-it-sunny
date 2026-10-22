@@ -32,8 +32,8 @@ const climateDestinations = destinations as DestinationClimate[];
         <h2 id="data-source">Data source</h2>
         <p>
           Values are from <a href={climateDestinations[0].source.documentationUrl}>NASA POWER</a> for
-          {' '}{climateDestinations[0].climate.period.description}. Temperature is mean air temperature
-          at 2 metres. Rainfall is corrected precipitation, converted from daily averages to an estimated
+          {' '}{climateDestinations[0].climate.period.description}. Mean temperature and average daily high
+          are 2-metre air-temperature climatologies. The finder filters by mean temperature. Rainfall is corrected precipitation, converted from daily averages to an estimated
           calendar-month total. Solar radiation is all-sky surface shortwave downward irradiance—not
           hours of sunshine.
         </p>

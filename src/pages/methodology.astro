@@ -24,14 +24,19 @@ const example = (destinations as DestinationClimate[])[0];
           Climate data is generated at build time from the <a href={example.source.documentationUrl}>NASA POWER Climatology API</a>.
           The current dataset covers {example.climate.period.description}; it records the source metadata returned with each API request.
         </p>
-        <p>Data source attribution: NASA POWER. Data-use and licensing terms must be reviewed before a public launch.</p>
+        <p>
+          Data attribution: <a href="https://power.larc.nasa.gov/">NASA POWER</a>. NASA's <a href="https://science.nasa.gov/earth-science/earth-science-data/data-information-policy">Earth-science data policy</a> supports full and open sharing, while its <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/">public-use guidance</a> says NASA should be acknowledged and its name must not imply endorsement. This site
+          uses a factual source attribution and no NASA logos. Recheck the applicable terms before any commercial launch.
+        </p>
       </section>
 
       <section aria-labelledby="metrics">
         <h2 id="metrics">Metrics</h2>
         <dl>
-          <dt>Temperature</dt>
+          <dt>Mean temperature</dt>
           <dd>{example.source.parameters.temperature.code}: {example.source.parameters.temperature.name}, shown in {example.source.parameters.temperature.unit}.</dd>
+          <dt>Average daily high</dt>
+          <dd>{example.source.parameters.averageDailyMaximumTemperature.code}: {example.source.parameters.averageDailyMaximumTemperature.name}, shown in {example.source.parameters.averageDailyMaximumTemperature.unit}. NASA POWER's similarly named <code>T2M_MAX</code> is a monthly extreme, so this site does not use it as an average daily high.</dd>
           <dt>Rainfall</dt>
           <dd>{example.source.parameters.precipitation.code}: {example.source.parameters.precipitation.name}. NASA POWER supplies mm/day; this site multiplies it by calendar days in the month to show an estimated monthly amount. It is not rainy-day count.</dd>
           <dt>Solar radiation</dt>

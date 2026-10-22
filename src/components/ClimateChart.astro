@@ -1,0 +1,76 @@
+---
+import type { DestinationClimate } from '../data/climate';
+
+interface Props {
+  destination: DestinationClimate;
+}
+
+const { destination } = Astro.props;
+const months = destination.climate.months;
+const values = months.flatMap((month) => [
+  month.meanTemperatureCelsius,
+  month.averageDailyMaximumTemperatureCelsius,
+]);
+const minimumTemperature = Math.floor((Math.min(...values) - 2) / 5) * 5;
+const maximumTemperature = Math.ceil((Math.max(...values) + 2) / 5) * 5;
+const chartWidth = 720;
+const chartHeight = 270;
+const padding = { top: 24, right: 20, bottom: 42, left: 44 };
+const plotWidth = chartWidth - padding.left - padding.right;
+const plotHeight = chartHeight - padding.top - padding.bottom;
+const temperatureRange = maximumTemperature - minimumTemperature;
+const x = (index: number) => padding.left + (plotWidth * index) / (months.length - 1);
+const y = (value: number) => padding.top + ((maximumTemperature - value) / temperatureRange) * plotHeight;
+const points = (metric: 'meanTemperatureCelsius' | 'averageDailyMaximumTemperatureCelsius') => months
+  .map((month, index) => `${x(index)},${y(month[metric])}`)
+  .join(' ');
+const chartId = `temperature-chart-${destination.destination.id}`;
+---
+
+<figure class="climate-chart" aria-labelledby={`${chartId}-title`}>
+  <figcaption id={`${chartId}-title`}>
+    <strong>Monthly temperatures</strong>
+    <span>{destination.climate.period.description}; representative point near {destination.destination.name}</span>
+  </figcaption>
+  <div class="legend" aria-label="Chart legend">
+    <span><i class="mean"></i>Mean temperature</span>
+    <span><i class="high"></i>Average daily high</span>
+  </div>
+  <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} role="img" aria-labelledby={`${chartId}-svg-title ${chartId}-svg-description`}>
+    <title id={`${chartId}-svg-title`}>Monthly mean temperature and average daily high for {destination.destination.name}</title>
+    <desc id={`${chartId}-svg-description`}>A line chart showing each metric from January to December in degrees Celsius. The detailed data table follows.</desc>
+    {[minimumTemperature, maximumTemperature].map((value) => (
+      <g>
+        <line x1={padding.left} x2={chartWidth - padding.right} y1={y(value)} y2={y(value)} class="grid" />
+        <text x={padding.left - 8} y={y(value) + 4} text-anchor="end">{value}°</text>
+      </g>
+    ))}
+    {months.map((month, index) => (
+      <text x={x(index)} y={chartHeight - 14} text-anchor="middle">{month.label.slice(0, 3)}</text>
+    ))}
+    <polyline points={points('meanTemperatureCelsius')} class="mean-line" />
+    <polyline points={points('averageDailyMaximumTemperatureCelsius')} class="high-line" />
+    {months.map((month, index) => (
+      <g>
+        <circle cx={x(index)} cy={y(month.meanTemperatureCelsius)} r="3" class="mean-point"><title>{month.label}: mean {month.meanTemperatureCelsius.toFixed(1)} °C</title></circle>
+        <circle cx={x(index)} cy={y(month.averageDailyMaximumTemperatureCelsius)} r="3" class="high-point"><title>{month.label}: average daily high {month.averageDailyMaximumTemperatureCelsius.toFixed(1)} °C</title></circle>
+      </g>
+    ))}
+  </svg>
+</figure>
+
+<style>
+  .climate-chart { margin: 2rem 0; }
+  figcaption span { color: #52616c; display: block; font-size: 0.95rem; }
+  .legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.75rem 0; }
+  .legend span { align-items: center; display: inline-flex; gap: 0.35rem; }
+  .legend i { border-radius: 50%; display: inline-block; height: 0.75rem; width: 0.75rem; }
+  .legend .mean { background: #075985; }
+  .legend .high { background: #b45309; }
+  .mean-line, .mean-point { fill: #075985; stroke: #075985; }
+  .high-line, .high-point { fill: #b45309; stroke: #b45309; }
+  svg { display: block; height: auto; max-width: 100%; }
+  svg text { fill: #52616c; font-size: 13px; }
+  .grid { stroke: #b9c4cc; stroke-dasharray: 3 3; }
+  .mean-line, .high-line { fill: none; stroke-width: 3; }
+</style>

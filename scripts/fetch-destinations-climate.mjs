@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { destinations } from './destinations.mjs';
-import { normalizeClimateResponse } from './normalize-climate.mjs';
+import { normalizeClimateResponse, validateClimateDataset } from './normalize-climate.mjs';
 
 const period = { startYear: 1991, endYear: 2020 };
 const baseUrl = 'https://power.larc.nasa.gov/api/temporal/climatology/point';
@@ -9,7 +9,7 @@ const baseUrl = 'https://power.larc.nasa.gov/api/temporal/climatology/point';
 async function fetchDestinationClimate(destination) {
   const apiUrl = new URL(baseUrl);
   apiUrl.search = new URLSearchParams({
-    parameters: 'T2M,PRECTOTCORR,ALLSKY_SFC_SW_DWN',
+    parameters: 'T2M,T2M_MAX_AVG,PRECTOTCORR,ALLSKY_SFC_SW_DWN',
     community: 'RE',
     longitude: String(destination.longitude),
     latitude: String(destination.latitude),
@@ -35,6 +35,7 @@ const records = [];
 for (let index = 0; index < destinations.length; index += 5) {
   records.push(...await Promise.all(destinations.slice(index, index + 5).map(fetchDestinationClimate)));
 }
+validateClimateDataset(records);
 
 const outputUrl = new URL('../src/data/destinations.json', import.meta.url);
 await mkdir(new URL('../src/data/', import.meta.url), { recursive: true });

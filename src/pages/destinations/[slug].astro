@@ -1,6 +1,7 @@
 ---
 import destinations from '../../data/destinations.json';
 import type { DestinationClimate } from '../../data/climate';
+import ClimateChart from '../../components/ClimateChart.astro';
 import ClimateTable from '../../components/ClimateTable.astro';
 
 export function getStaticPaths() {
@@ -30,6 +31,7 @@ const { destination } = Astro.props as { destination: DestinationClimate };
       <h1>{destination.destination.name}</h1>
       <p>{destination.destination.country}. Historical averages for a representative grid point, not a forecast for a particular holiday.</p>
 
+      <ClimateChart destination={destination} />
       <ClimateTable destination={destination} />
 
       <section aria-labelledby="representative-location">
@@ -47,7 +49,8 @@ const { destination } = Astro.props as { destination: DestinationClimate };
         <h2 id="data-notes">Data notes</h2>
         <p>
           Source: <a href={destination.source.documentationUrl}>{destination.source.name}</a>,
-          {' '}{destination.climate.period.description}. Solar radiation is not sunshine duration;
+          {' '}{destination.climate.period.description}. Mean temperature and average daily high are both
+          {' '}2-metre air-temperature climatologies. Solar radiation is not sunshine duration;
           rainfall is an estimated monthly amount, not a number of rainy days.
         </p>
         <p><a href="/methodology/">Methodology and attribution</a></p>

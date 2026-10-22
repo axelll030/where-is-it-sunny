@@ -32,7 +32,7 @@ export default function DestinationFilters({ destinations }: Props) {
           </select>
         </div>
         <div>
-          <label htmlFor="minimum-temperature">Minimum temperature (°C)</label>
+          <label htmlFor="minimum-temperature">Minimum mean temperature (°C)</label>
           <input id="minimum-temperature" type="number" inputMode="decimal" value={minimumTemperature} onChange={(event) => setMinimumTemperature(event.target.value)} />
         </div>
         <div>
@@ -51,7 +51,8 @@ export default function DestinationFilters({ destinations }: Props) {
               <h3><a href={`/destinations/${destination.destination.id}/`}>{destination.destination.name}</a></h3>
               <p>{destination.destination.country}</p>
               <dl>
-                <div><dt>Average temperature</dt><dd>{climate.meanTemperatureCelsius.toFixed(1)} °C</dd></div>
+                <div><dt>Mean temperature</dt><dd>{climate.meanTemperatureCelsius.toFixed(1)} °C</dd></div>
+                <div><dt>Average daily high</dt><dd>{climate.averageDailyMaximumTemperatureCelsius.toFixed(1)} °C</dd></div>
                 <div><dt>Typical rainfall</dt><dd>{climate.meanMonthlyPrecipitationMm.toFixed(0)} mm/month</dd></div>
                 <div><dt>Solar radiation</dt><dd>{climate.meanDailySolarRadiationKwhM2.toFixed(1)} kWh/m²/day</dd></div>
               </dl>

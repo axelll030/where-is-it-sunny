@@ -46,7 +46,7 @@ export default function DestinationComparison({ destinations }: Props) {
 
       <div className="comparison-table-wrap" tabIndex={0} aria-label="Monthly destination comparison">
         <table className="comparison-table">
-          <caption>Historical monthly average temperature and rainfall</caption>
+          <caption>Historical monthly mean temperature, average daily high, and rainfall</caption>
           <thead>
             <tr>
               <th scope="col">Month</th>
@@ -60,8 +60,8 @@ export default function DestinationComparison({ destinations }: Props) {
               return (
                 <tr key={firstMonth.month}>
                   <th scope="row">{firstMonth.label}</th>
-                  <td><strong>{firstMonth.meanTemperatureCelsius.toFixed(1)} °C</strong><span>{firstMonth.meanMonthlyPrecipitationMm.toFixed(0)} mm rainfall</span></td>
-                  <td><strong>{secondMonth.meanTemperatureCelsius.toFixed(1)} °C</strong><span>{secondMonth.meanMonthlyPrecipitationMm.toFixed(0)} mm rainfall</span></td>
+                  <td><strong>Mean: {firstMonth.meanTemperatureCelsius.toFixed(1)} °C</strong><span>Average daily high: {firstMonth.averageDailyMaximumTemperatureCelsius.toFixed(1)} °C</span><span>{firstMonth.meanMonthlyPrecipitationMm.toFixed(0)} mm rainfall</span></td>
+                  <td><strong>Mean: {secondMonth.meanTemperatureCelsius.toFixed(1)} °C</strong><span>Average daily high: {secondMonth.averageDailyMaximumTemperatureCelsius.toFixed(1)} °C</span><span>{secondMonth.meanMonthlyPrecipitationMm.toFixed(0)} mm rainfall</span></td>
                 </tr>
               );
             })}

@@ -14,7 +14,8 @@ const { destination } = Astro.props;
     <thead>
       <tr>
         <th scope="col">Month</th>
-        <th scope="col">Temperature</th>
+        <th scope="col">Mean temperature</th>
+        <th scope="col">Average daily high</th>
         <th scope="col">Rainfall</th>
         <th scope="col">Solar radiation</th>
       </tr>
@@ -24,6 +25,7 @@ const { destination } = Astro.props;
         <tr>
           <th scope="row">{month.label}</th>
           <td>{month.meanTemperatureCelsius.toFixed(1)} °C</td>
+          <td>{month.averageDailyMaximumTemperatureCelsius.toFixed(1)} °C</td>
           <td>{month.meanMonthlyPrecipitationMm.toFixed(0)} mm/month</td>
           <td>{month.meanDailySolarRadiationKwhM2.toFixed(1)} kWh/m²/day</td>
         </tr>

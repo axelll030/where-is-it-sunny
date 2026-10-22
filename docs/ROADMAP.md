@@ -63,24 +63,65 @@ This roadmap is deliberately small. Work through milestones in order. Each miles
 
 ## Milestone 4 — Data quality and useful presentation
 
-- [ ] Add average daily maximum temperature (`T2M_MAX`); verify NASA POWER parameter availability, units, and monthly climatology semantics before use
-- [ ] Display mean temperature and average daily high with distinct, accurate labels
-- [ ] Add simple 12-month climate visualizations without introducing unnecessary dependencies
-- [ ] Validate all generated destinations and months for missing values, ranges, and consistent units
-- [ ] Ensure invalid or missing measurements are never silently shown as zero or valid observations
-- [ ] Document the historical reference period, data source, and metric definitions consistently across the site
-- [ ] Verify NASA POWER data-use conditions and required attribution before commercial use or launch
-- [ ] Confirm filters and comparisons use the same metric definitions as destination pages
+- [x] Verify `T2M_MAX` semantics and add the validated average daily maximum metric (`T2M_MAX_AVG`); verify availability, units, and monthly climatology semantics before use
+- [x] Display mean temperature and average daily high with distinct, accurate labels
+- [x] Add simple 12-month climate visualizations without introducing unnecessary dependencies
+- [x] Validate all generated destinations and months for missing values, ranges, and consistent units
+- [x] Ensure invalid or missing measurements are never silently shown as zero or valid observations
+- [x] Document the historical reference period, data source, and metric definitions consistently across the site
+- [x] Verify NASA POWER data-use conditions and required attribution before commercial use or launch
+- [x] Confirm filters and comparisons use the same metric definitions as destination pages
 - [ ] Test the finder, comparison tool, and destination pages on mobile screens
 
 **Done when:** visitors can compare destinations without confusing historical means, average daily highs, monthly precipitation, or solar radiation. All displayed data is validated and clearly labeled.
 
-## Milestone 5 — SEO and public launch
+### Milestone 4 decisions and limitations
+
+- NASA POWER's `T2M_MAX` is available in climatology requests but is a monthly extreme, not an average daily high. The site uses `T2M_MAX_AVG` (`Temperature at 2 Meters Maximum Average`) for the displayed average daily high. It was live-validated for Heraklion alongside the existing parameters, then regenerated for all ten destinations on 2026-10-22.
+- The generation script rejects NASA POWER's fill marker, non-finite values, implausible source-value ranges, malformed coordinates, missing months, inconsistent units, duplicate IDs, and a daily-high value below the mean temperature. A checked dataset is written only after every record passes validation.
+- The finder continues to filter on mean temperature, and cards, charts, tables, comparison cells, and methodology now name the temperature metric explicitly. Rainfall remains estimated monthly precipitation; solar radiation remains an irradiance measure, not sunshine duration.
+- NASA's Earth-science data policy supports full and open sharing. The project uses factual NASA POWER attribution, avoids NASA logos and endorsement claims, and must recheck applicable terms before commercial launch.
+- Automated checks cover the data path and build. Manual testing on actual mobile screens remains outstanding because no device-preview tool is available in this workspace.
+
+## Milestone 5 — Page structure, reusable components, and visual polish
+
+Keep the product lightweight and static-first. This milestone reorganizes existing functionality; it is not a rewrite or a new feature platform.
+
+### Clear page responsibilities
+
+- [ ] Keep `/` focused on destination discovery: a concise introduction, month/temperature/rainfall filters, result count, and destination cards
+- [ ] Move the existing two-destination comparison interface to `/compare/`; retain its working controls and historical data labels
+- [ ] Keep `/destinations/[slug]/` as the detailed destination view with monthly climate information, charts, source caveats, and a link to comparison
+- [ ] Keep `/methodology/` accessible from navigation or footer; do not bury data definitions
+- [ ] Provide shared, descriptive navigation and footer links; use real links to destinations and comparison pages
+
+### Component boundaries and styling
+
+- [ ] Extract a reusable `BaseLayout.astro` (or improve the existing one) for the HTML shell, metadata, header, footer, and shared styles
+- [ ] Extract reusable static Astro components for destination cards, climate tables, and other repeated presentational content where duplication exists
+- [ ] Keep interactive finder filters and comparison selectors in focused React islands; hydrate only components that need browser interactivity
+- [ ] Reuse current components, types, and generated JSON; avoid duplicating climate logic between pages
+- [ ] Establish a restrained, consistent visual style: typography, spacing, readable widths, form controls, card hierarchy, and clear focus/hover states
+- [ ] Make the finder usable on narrow screens, with legible climate metrics and no horizontal page overflow
+- [ ] Preserve visible units, historical period, representative-location caveats, and distinctions between solar radiation and sunshine hours
+
+### Accessibility, SEO, and verification
+
+- [ ] Use semantic landmarks, a logical heading hierarchy, labeled inputs, keyboard-accessible navigation, and visible focus indicators
+- [ ] Ensure the homepage has meaningful introductory content and crawlable links in generated HTML; filtered results may enhance that content in React
+- [ ] Keep destination detail content statically rendered and accessible without client-side JavaScript
+- [ ] Give Home, Compare, and destination pages appropriate titles and descriptions without duplicating page purpose
+- [ ] Check responsive layouts, keyboard interaction, empty states, and no-JavaScript behavior; run existing tests, type checks, and production build
+- [ ] Update the roadmap with actual outcomes and note any intentionally deferred polish
+
+**Done when:** the homepage is a clear destination finder, comparison has its own route, destination details remain informative and crawlable, and the UI is coherent and usable on desktop and mobile without new infrastructure or unnecessary dependencies.
+
+## Milestone 6 — SEO and public launch
 
 - [ ] Create useful, non-duplicative monthly landing pages with meaningful destination comparisons
 - [ ] Add unique page titles, meta descriptions, canonical URLs, sitemap, and robots.txt guidance
 - [ ] Add relevant internal links between monthly pages and destination pages
-- [ ] Check accessibility, mobile layout, performance, and broken links
+- [ ] Recheck accessibility, mobile layout, performance, and broken links in the production build
 - [ ] Verify that important destination content is present in generated HTML without client-side JavaScript
 - [ ] Confirm climate data attribution, licensing, and rights to any destination imagery
 - [ ] Deploy to a free static host and verify the production build and URLs

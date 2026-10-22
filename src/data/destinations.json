@@ -26,6 +26,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 12.75,
+          "averageDailyMaximumTemperatureCelsius": 17.39,
           "meanDailyPrecipitationMm": 3.02,
           "meanMonthlyPrecipitationMm": 93.62,
           "meanDailySolarRadiationKwhM2": 2.2971
@@ -34,6 +35,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 12.65,
+          "averageDailyMaximumTemperatureCelsius": 17.89,
           "meanDailyPrecipitationMm": 2.67,
           "meanMonthlyPrecipitationMm": 74.76,
           "meanDailySolarRadiationKwhM2": 3.0932
@@ -42,6 +44,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 13.87,
+          "averageDailyMaximumTemperatureCelsius": 19.86,
           "meanDailyPrecipitationMm": 1.58,
           "meanMonthlyPrecipitationMm": 48.98,
           "meanDailySolarRadiationKwhM2": 4.4451
@@ -50,6 +53,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 16.17,
+          "averageDailyMaximumTemperatureCelsius": 23.25,
           "meanDailyPrecipitationMm": 0.77,
           "meanMonthlyPrecipitationMm": 23.1,
           "meanDailySolarRadiationKwhM2": 5.8078
@@ -58,6 +62,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 19.75,
+          "averageDailyMaximumTemperatureCelsius": 27.41,
           "meanDailyPrecipitationMm": 0.47,
           "meanMonthlyPrecipitationMm": 14.57,
           "meanDailySolarRadiationKwhM2": 6.8682
@@ -66,6 +71,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 23.53,
+          "averageDailyMaximumTemperatureCelsius": 30.53,
           "meanDailyPrecipitationMm": 0.17,
           "meanMonthlyPrecipitationMm": 5.1,
           "meanDailySolarRadiationKwhM2": 7.705
@@ -74,6 +80,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 25.55,
+          "averageDailyMaximumTemperatureCelsius": 31.44,
           "meanDailyPrecipitationMm": 0.07,
           "meanMonthlyPrecipitationMm": 2.17,
           "meanDailySolarRadiationKwhM2": 7.6211
@@ -82,6 +89,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 25.84,
+          "averageDailyMaximumTemperatureCelsius": 30.94,
           "meanDailyPrecipitationMm": 0.12,
           "meanMonthlyPrecipitationMm": 3.72,
           "meanDailySolarRadiationKwhM2": 6.8662
@@ -90,6 +98,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 24.03,
+          "averageDailyMaximumTemperatureCelsius": 30.25,
           "meanDailyPrecipitationMm": 0.58,
           "meanMonthlyPrecipitationMm": 17.4,
           "meanDailySolarRadiationKwhM2": 5.5699
@@ -98,6 +107,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 20.99,
+          "averageDailyMaximumTemperatureCelsius": 27.33,
           "meanDailyPrecipitationMm": 1.53,
           "meanMonthlyPrecipitationMm": 47.43,
           "meanDailySolarRadiationKwhM2": 3.9564
@@ -106,6 +116,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 17.64,
+          "averageDailyMaximumTemperatureCelsius": 23.31,
           "meanDailyPrecipitationMm": 2.13,
           "meanMonthlyPrecipitationMm": 63.9,
           "meanDailySolarRadiationKwhM2": 2.7027
@@ -114,6 +125,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 14.45,
+          "averageDailyMaximumTemperatureCelsius": 19.59,
           "meanDailyPrecipitationMm": 2.99,
           "meanMonthlyPrecipitationMm": 92.69,
           "meanDailySolarRadiationKwhM2": 2.0279
@@ -122,12 +134,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.1442&latitude=35.3387&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.1442&latitude=35.3387&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -145,12 +162,13 @@
       },
       "apiVersion": "v2.10.1",
       "dataSources": [
-        "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "SRB",
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -180,6 +198,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 12.91,
+          "averageDailyMaximumTemperatureCelsius": 17.6,
           "meanDailyPrecipitationMm": 1.84,
           "meanMonthlyPrecipitationMm": 57.04,
           "meanDailySolarRadiationKwhM2": 2.54
@@ -188,6 +207,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 13.03,
+          "averageDailyMaximumTemperatureCelsius": 18.31,
           "meanDailyPrecipitationMm": 1.73,
           "meanMonthlyPrecipitationMm": 48.44,
           "meanDailySolarRadiationKwhM2": 3.4983
@@ -196,6 +216,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 14.45,
+          "averageDailyMaximumTemperatureCelsius": 21.36,
           "meanDailyPrecipitationMm": 1.87,
           "meanMonthlyPrecipitationMm": 57.97,
           "meanDailySolarRadiationKwhM2": 4.665
@@ -204,6 +225,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 15.85,
+          "averageDailyMaximumTemperatureCelsius": 23.62,
           "meanDailyPrecipitationMm": 1.82,
           "meanMonthlyPrecipitationMm": 54.6,
           "meanDailySolarRadiationKwhM2": 5.7154
@@ -212,6 +234,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 18.3,
+          "averageDailyMaximumTemperatureCelsius": 27.42,
           "meanDailyPrecipitationMm": 1.11,
           "meanMonthlyPrecipitationMm": 34.41,
           "meanDailySolarRadiationKwhM2": 6.73
@@ -220,6 +243,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 21.34,
+          "averageDailyMaximumTemperatureCelsius": 31.18,
           "meanDailyPrecipitationMm": 0.22,
           "meanMonthlyPrecipitationMm": 6.6,
           "meanDailySolarRadiationKwhM2": 7.6293
@@ -228,6 +252,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 23.48,
+          "averageDailyMaximumTemperatureCelsius": 33.25,
           "meanDailyPrecipitationMm": 0.04,
           "meanMonthlyPrecipitationMm": 1.24,
           "meanDailySolarRadiationKwhM2": 7.8698
@@ -236,6 +261,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 23.63,
+          "averageDailyMaximumTemperatureCelsius": 33.04,
           "meanDailyPrecipitationMm": 0.1,
           "meanMonthlyPrecipitationMm": 3.1,
           "meanDailySolarRadiationKwhM2": 7.0046
@@ -244,6 +270,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 21.86,
+          "averageDailyMaximumTemperatureCelsius": 30.11,
           "meanDailyPrecipitationMm": 0.75,
           "meanMonthlyPrecipitationMm": 22.5,
           "meanDailySolarRadiationKwhM2": 5.4074
@@ -252,6 +279,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 19.36,
+          "averageDailyMaximumTemperatureCelsius": 26.81,
           "meanDailyPrecipitationMm": 2.15,
           "meanMonthlyPrecipitationMm": 66.65,
           "meanDailySolarRadiationKwhM2": 3.8412
@@ -260,6 +288,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 16.01,
+          "averageDailyMaximumTemperatureCelsius": 21.93,
           "meanDailyPrecipitationMm": 2.83,
           "meanMonthlyPrecipitationMm": 84.9,
           "meanDailySolarRadiationKwhM2": 2.7694
@@ -268,6 +297,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 14.03,
+          "averageDailyMaximumTemperatureCelsius": 18.59,
           "meanDailyPrecipitationMm": 2.75,
           "meanMonthlyPrecipitationMm": 85.25,
           "meanDailySolarRadiationKwhM2": 2.2165
@@ -276,12 +306,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-7.9304&latitude=37.0194&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-7.9304&latitude=37.0194&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -301,10 +336,11 @@
       "dataSources": [
         "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -334,6 +370,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 12.8,
+          "averageDailyMaximumTemperatureCelsius": 17.76,
           "meanDailyPrecipitationMm": 1.92,
           "meanMonthlyPrecipitationMm": 59.52,
           "meanDailySolarRadiationKwhM2": 2.6614
@@ -342,6 +379,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 13.01,
+          "averageDailyMaximumTemperatureCelsius": 18.19,
           "meanDailyPrecipitationMm": 1.85,
           "meanMonthlyPrecipitationMm": 51.8,
           "meanDailySolarRadiationKwhM2": 3.517
@@ -350,6 +388,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 14.25,
+          "averageDailyMaximumTemperatureCelsius": 20.39,
           "meanDailyPrecipitationMm": 1.82,
           "meanMonthlyPrecipitationMm": 56.42,
           "meanDailySolarRadiationKwhM2": 4.6989
@@ -358,6 +397,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 15.63,
+          "averageDailyMaximumTemperatureCelsius": 21.34,
           "meanDailyPrecipitationMm": 1.51,
           "meanMonthlyPrecipitationMm": 45.3,
           "meanDailySolarRadiationKwhM2": 5.8735
@@ -366,6 +406,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 18.1,
+          "averageDailyMaximumTemperatureCelsius": 24.58,
           "meanDailyPrecipitationMm": 0.88,
           "meanMonthlyPrecipitationMm": 27.28,
           "meanDailySolarRadiationKwhM2": 6.8654
@@ -374,6 +415,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 21.21,
+          "averageDailyMaximumTemperatureCelsius": 27.85,
           "meanDailyPrecipitationMm": 0.25,
           "meanMonthlyPrecipitationMm": 7.5,
           "meanDailySolarRadiationKwhM2": 7.6617
@@ -382,6 +424,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 23.9,
+          "averageDailyMaximumTemperatureCelsius": 30.68,
           "meanDailyPrecipitationMm": 0.02,
           "meanMonthlyPrecipitationMm": 0.62,
           "meanDailySolarRadiationKwhM2": 7.6529
@@ -390,6 +433,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 24.54,
+          "averageDailyMaximumTemperatureCelsius": 31.03,
           "meanDailyPrecipitationMm": 0.1,
           "meanMonthlyPrecipitationMm": 3.1,
           "meanDailySolarRadiationKwhM2": 6.7612
@@ -398,6 +442,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 22.12,
+          "averageDailyMaximumTemperatureCelsius": 28.06,
           "meanDailyPrecipitationMm": 0.93,
           "meanMonthlyPrecipitationMm": 27.9,
           "meanDailySolarRadiationKwhM2": 5.2806
@@ -406,6 +451,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 19.16,
+          "averageDailyMaximumTemperatureCelsius": 24.93,
           "meanDailyPrecipitationMm": 1.87,
           "meanMonthlyPrecipitationMm": 57.97,
           "meanDailySolarRadiationKwhM2": 3.8569
@@ -414,6 +460,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 15.71,
+          "averageDailyMaximumTemperatureCelsius": 21.2,
           "meanDailyPrecipitationMm": 2.45,
           "meanMonthlyPrecipitationMm": 73.5,
           "meanDailySolarRadiationKwhM2": 2.803
@@ -422,6 +469,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 13.75,
+          "averageDailyMaximumTemperatureCelsius": 18.42,
           "meanDailyPrecipitationMm": 2.53,
           "meanMonthlyPrecipitationMm": 78.43,
           "meanDailySolarRadiationKwhM2": 2.29
@@ -430,12 +478,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-4.4214&latitude=36.7213&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-4.4214&latitude=36.7213&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -453,12 +506,13 @@
       },
       "apiVersion": "v2.10.1",
       "dataSources": [
-        "SYN1DEG",
         "SRB",
-        "MERRA2"
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -488,6 +542,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 17.13,
+          "averageDailyMaximumTemperatureCelsius": 20.94,
           "meanDailyPrecipitationMm": 1.01,
           "meanMonthlyPrecipitationMm": 31.31,
           "meanDailySolarRadiationKwhM2": 3.4571
@@ -496,6 +551,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 16.88,
+          "averageDailyMaximumTemperatureCelsius": 20.53,
           "meanDailyPrecipitationMm": 1.08,
           "meanMonthlyPrecipitationMm": 30.24,
           "meanDailySolarRadiationKwhM2": 4.2176
@@ -504,6 +560,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 17.27,
+          "averageDailyMaximumTemperatureCelsius": 21.73,
           "meanDailyPrecipitationMm": 0.77,
           "meanMonthlyPrecipitationMm": 23.87,
           "meanDailySolarRadiationKwhM2": 5.3139
@@ -512,6 +569,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 17.88,
+          "averageDailyMaximumTemperatureCelsius": 22.2,
           "meanDailyPrecipitationMm": 0.53,
           "meanMonthlyPrecipitationMm": 15.9,
           "meanDailySolarRadiationKwhM2": 6.1682
@@ -520,6 +578,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 19.02,
+          "averageDailyMaximumTemperatureCelsius": 23.31,
           "meanDailyPrecipitationMm": 0.25,
           "meanMonthlyPrecipitationMm": 7.75,
           "meanDailySolarRadiationKwhM2": 6.6787
@@ -528,6 +587,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 20.49,
+          "averageDailyMaximumTemperatureCelsius": 24.19,
           "meanDailyPrecipitationMm": 0.13,
           "meanMonthlyPrecipitationMm": 3.9,
           "meanDailySolarRadiationKwhM2": 6.8254
@@ -536,6 +596,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 21.47,
+          "averageDailyMaximumTemperatureCelsius": 24.86,
           "meanDailyPrecipitationMm": 0.1,
           "meanMonthlyPrecipitationMm": 3.1,
           "meanDailySolarRadiationKwhM2": 6.4893
@@ -544,6 +605,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 22.38,
+          "averageDailyMaximumTemperatureCelsius": 25.6,
           "meanDailyPrecipitationMm": 0.16,
           "meanMonthlyPrecipitationMm": 4.96,
           "meanDailySolarRadiationKwhM2": 6.2597
@@ -552,6 +614,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 22.6,
+          "averageDailyMaximumTemperatureCelsius": 25.87,
           "meanDailyPrecipitationMm": 0.34,
           "meanMonthlyPrecipitationMm": 10.2,
           "meanDailySolarRadiationKwhM2": 5.6739
@@ -560,6 +623,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 21.94,
+          "averageDailyMaximumTemperatureCelsius": 26.04,
           "meanDailyPrecipitationMm": 0.77,
           "meanMonthlyPrecipitationMm": 23.87,
           "meanDailySolarRadiationKwhM2": 4.5473
@@ -568,6 +632,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 20.06,
+          "averageDailyMaximumTemperatureCelsius": 24.11,
           "meanDailyPrecipitationMm": 1.01,
           "meanMonthlyPrecipitationMm": 30.3,
           "meanDailySolarRadiationKwhM2": 3.5296
@@ -576,6 +641,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 18.44,
+          "averageDailyMaximumTemperatureCelsius": 21.73,
           "meanDailyPrecipitationMm": 1.24,
           "meanMonthlyPrecipitationMm": 38.44,
           "meanDailySolarRadiationKwhM2": 3.1249
@@ -584,12 +650,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-16.2518&latitude=28.4636&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-16.2518&latitude=28.4636&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -609,10 +680,11 @@
       "dataSources": [
         "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -642,6 +714,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 17.64,
+          "averageDailyMaximumTemperatureCelsius": 20.81,
           "meanDailyPrecipitationMm": 0.45,
           "meanMonthlyPrecipitationMm": 13.95,
           "meanDailySolarRadiationKwhM2": 3.5289
@@ -650,6 +723,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 17.42,
+          "averageDailyMaximumTemperatureCelsius": 20.98,
           "meanDailyPrecipitationMm": 0.53,
           "meanMonthlyPrecipitationMm": 14.84,
           "meanDailySolarRadiationKwhM2": 4.267
@@ -658,6 +732,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 17.83,
+          "averageDailyMaximumTemperatureCelsius": 22.23,
           "meanDailyPrecipitationMm": 0.39,
           "meanMonthlyPrecipitationMm": 12.09,
           "meanDailySolarRadiationKwhM2": 5.4128
@@ -666,6 +741,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 18.35,
+          "averageDailyMaximumTemperatureCelsius": 22.53,
           "meanDailyPrecipitationMm": 0.24,
           "meanMonthlyPrecipitationMm": 7.2,
           "meanDailySolarRadiationKwhM2": 6.2618
@@ -674,6 +750,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 19.4,
+          "averageDailyMaximumTemperatureCelsius": 22.86,
           "meanDailyPrecipitationMm": 0.1,
           "meanMonthlyPrecipitationMm": 3.1,
           "meanDailySolarRadiationKwhM2": 6.787
@@ -682,6 +759,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 20.76,
+          "averageDailyMaximumTemperatureCelsius": 23.67,
           "meanDailyPrecipitationMm": 0.04,
           "meanMonthlyPrecipitationMm": 1.2,
           "meanDailySolarRadiationKwhM2": 6.8529
@@ -690,6 +768,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 21.72,
+          "averageDailyMaximumTemperatureCelsius": 24.49,
           "meanDailyPrecipitationMm": 0.03,
           "meanMonthlyPrecipitationMm": 0.93,
           "meanDailySolarRadiationKwhM2": 6.539
@@ -698,6 +777,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 22.65,
+          "averageDailyMaximumTemperatureCelsius": 25.41,
           "meanDailyPrecipitationMm": 0.08,
           "meanMonthlyPrecipitationMm": 2.48,
           "meanDailySolarRadiationKwhM2": 6.1979
@@ -706,6 +786,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 22.88,
+          "averageDailyMaximumTemperatureCelsius": 25.71,
           "meanDailyPrecipitationMm": 0.2,
           "meanMonthlyPrecipitationMm": 6,
           "meanDailySolarRadiationKwhM2": 5.572
@@ -714,6 +795,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 22.33,
+          "averageDailyMaximumTemperatureCelsius": 25.99,
           "meanDailyPrecipitationMm": 0.51,
           "meanMonthlyPrecipitationMm": 15.81,
           "meanDailySolarRadiationKwhM2": 4.57
@@ -722,6 +804,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 20.55,
+          "averageDailyMaximumTemperatureCelsius": 24.48,
           "meanDailyPrecipitationMm": 0.54,
           "meanMonthlyPrecipitationMm": 16.2,
           "meanDailySolarRadiationKwhM2": 3.6384
@@ -730,6 +813,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 18.9,
+          "averageDailyMaximumTemperatureCelsius": 21.93,
           "meanDailyPrecipitationMm": 0.65,
           "meanMonthlyPrecipitationMm": 20.15,
           "meanDailySolarRadiationKwhM2": 3.2183
@@ -738,12 +822,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-13.5477&latitude=28.963&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-13.5477&latitude=28.963&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -763,10 +852,11 @@
       "dataSources": [
         "SYN1DEG",
         "MERRA2",
-        "SRB"
+        "SRB",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -796,6 +886,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 11.06,
+          "averageDailyMaximumTemperatureCelsius": 17,
           "meanDailyPrecipitationMm": 2.56,
           "meanMonthlyPrecipitationMm": 79.36,
           "meanDailySolarRadiationKwhM2": 2.6477
@@ -804,6 +895,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 11.3,
+          "averageDailyMaximumTemperatureCelsius": 18.43,
           "meanDailyPrecipitationMm": 1.84,
           "meanMonthlyPrecipitationMm": 51.52,
           "meanDailySolarRadiationKwhM2": 3.5607
@@ -812,6 +904,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 13.18,
+          "averageDailyMaximumTemperatureCelsius": 21.74,
           "meanDailyPrecipitationMm": 1.12,
           "meanMonthlyPrecipitationMm": 34.72,
           "meanDailySolarRadiationKwhM2": 4.934
@@ -820,6 +913,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 16.22,
+          "averageDailyMaximumTemperatureCelsius": 26.78,
           "meanDailyPrecipitationMm": 0.64,
           "meanMonthlyPrecipitationMm": 19.2,
           "meanDailySolarRadiationKwhM2": 6.1392
@@ -828,6 +922,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 20.26,
+          "averageDailyMaximumTemperatureCelsius": 30.65,
           "meanDailyPrecipitationMm": 0.43,
           "meanMonthlyPrecipitationMm": 13.33,
           "meanDailySolarRadiationKwhM2": 7.15
@@ -836,6 +931,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 24.35,
+          "averageDailyMaximumTemperatureCelsius": 34.04,
           "meanDailyPrecipitationMm": 0.16,
           "meanMonthlyPrecipitationMm": 4.8,
           "meanDailySolarRadiationKwhM2": 7.89
@@ -844,6 +940,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 26.97,
+          "averageDailyMaximumTemperatureCelsius": 35.53,
           "meanDailyPrecipitationMm": 0.08,
           "meanMonthlyPrecipitationMm": 2.48,
           "meanDailySolarRadiationKwhM2": 7.6763
@@ -852,6 +949,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 27.21,
+          "averageDailyMaximumTemperatureCelsius": 35.41,
           "meanDailyPrecipitationMm": 0.09,
           "meanMonthlyPrecipitationMm": 2.79,
           "meanDailySolarRadiationKwhM2": 6.9383
@@ -860,6 +958,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 24.79,
+          "averageDailyMaximumTemperatureCelsius": 33.08,
           "meanDailyPrecipitationMm": 0.3,
           "meanMonthlyPrecipitationMm": 9,
           "meanDailySolarRadiationKwhM2": 5.9305
@@ -868,6 +967,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 21.48,
+          "averageDailyMaximumTemperatureCelsius": 30.28,
           "meanDailyPrecipitationMm": 0.84,
           "meanMonthlyPrecipitationMm": 26.04,
           "meanDailySolarRadiationKwhM2": 4.4143
@@ -876,6 +976,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 16.85,
+          "averageDailyMaximumTemperatureCelsius": 24.68,
           "meanDailyPrecipitationMm": 1.69,
           "meanMonthlyPrecipitationMm": 50.7,
           "meanDailySolarRadiationKwhM2": 3.1244
@@ -884,6 +985,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 12.95,
+          "averageDailyMaximumTemperatureCelsius": 19.42,
           "meanDailyPrecipitationMm": 2.84,
           "meanMonthlyPrecipitationMm": 88.04,
           "meanDailySolarRadiationKwhM2": 2.4603
@@ -892,12 +994,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=32.4218&latitude=34.7754&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=32.4218&latitude=34.7754&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -915,12 +1022,13 @@
       },
       "apiVersion": "v2.10.1",
       "dataSources": [
-        "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "SRB",
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -950,6 +1058,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 14.53,
+          "averageDailyMaximumTemperatureCelsius": 16.94,
           "meanDailyPrecipitationMm": 2.4,
           "meanMonthlyPrecipitationMm": 74.4,
           "meanDailySolarRadiationKwhM2": 2.5456
@@ -958,6 +1067,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 13.94,
+          "averageDailyMaximumTemperatureCelsius": 16.32,
           "meanDailyPrecipitationMm": 2.13,
           "meanMonthlyPrecipitationMm": 59.64,
           "meanDailySolarRadiationKwhM2": 3.5074
@@ -966,6 +1076,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 14.62,
+          "averageDailyMaximumTemperatureCelsius": 16.99,
           "meanDailyPrecipitationMm": 1.51,
           "meanMonthlyPrecipitationMm": 46.81,
           "meanDailySolarRadiationKwhM2": 4.7383
@@ -974,6 +1085,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 16,
+          "averageDailyMaximumTemperatureCelsius": 18.79,
           "meanDailyPrecipitationMm": 1.05,
           "meanMonthlyPrecipitationMm": 31.5,
           "meanDailySolarRadiationKwhM2": 5.9555
@@ -982,6 +1094,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 18.72,
+          "averageDailyMaximumTemperatureCelsius": 22.22,
           "meanDailyPrecipitationMm": 0.53,
           "meanMonthlyPrecipitationMm": 16.43,
           "meanDailySolarRadiationKwhM2": 6.9928
@@ -990,6 +1103,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 22.46,
+          "averageDailyMaximumTemperatureCelsius": 26.73,
           "meanDailyPrecipitationMm": 0.32,
           "meanMonthlyPrecipitationMm": 9.6,
           "meanDailySolarRadiationKwhM2": 7.59
@@ -998,6 +1112,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 25.36,
+          "averageDailyMaximumTemperatureCelsius": 29.23,
           "meanDailyPrecipitationMm": 0.14,
           "meanMonthlyPrecipitationMm": 4.34,
           "meanDailySolarRadiationKwhM2": 7.6465
@@ -1006,6 +1121,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 26.58,
+          "averageDailyMaximumTemperatureCelsius": 29.8,
           "meanDailyPrecipitationMm": 0.36,
           "meanMonthlyPrecipitationMm": 11.16,
           "meanDailySolarRadiationKwhM2": 6.8367
@@ -1014,6 +1130,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 24.97,
+          "averageDailyMaximumTemperatureCelsius": 27.72,
           "meanDailyPrecipitationMm": 2,
           "meanMonthlyPrecipitationMm": 60,
           "meanDailySolarRadiationKwhM2": 5.3301
@@ -1022,6 +1139,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 22.62,
+          "averageDailyMaximumTemperatureCelsius": 25.41,
           "meanDailyPrecipitationMm": 2.55,
           "meanMonthlyPrecipitationMm": 79.05,
           "meanDailySolarRadiationKwhM2": 3.8782
@@ -1030,6 +1148,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 19.47,
+          "averageDailyMaximumTemperatureCelsius": 22.96,
           "meanDailyPrecipitationMm": 3.02,
           "meanMonthlyPrecipitationMm": 90.6,
           "meanDailySolarRadiationKwhM2": 2.7335
@@ -1038,6 +1157,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 16.26,
+          "averageDailyMaximumTemperatureCelsius": 19.36,
           "meanDailyPrecipitationMm": 2.75,
           "meanMonthlyPrecipitationMm": 85.25,
           "meanDailySolarRadiationKwhM2": 2.2336
@@ -1046,12 +1166,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=14.5146&latitude=35.8989&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=14.5146&latitude=35.8989&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -1071,10 +1196,11 @@
       "dataSources": [
         "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -1104,6 +1230,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 7.02,
+          "averageDailyMaximumTemperatureCelsius": 16.37,
           "meanDailyPrecipitationMm": 5.15,
           "meanMonthlyPrecipitationMm": 159.65,
           "meanDailySolarRadiationKwhM2": 2.3787
@@ -1112,6 +1239,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 7.89,
+          "averageDailyMaximumTemperatureCelsius": 17.67,
           "meanDailyPrecipitationMm": 3.44,
           "meanMonthlyPrecipitationMm": 96.32,
           "meanDailySolarRadiationKwhM2": 3.2067
@@ -1120,6 +1248,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 10.58,
+          "averageDailyMaximumTemperatureCelsius": 21.43,
           "meanDailyPrecipitationMm": 2.53,
           "meanMonthlyPrecipitationMm": 78.43,
           "meanDailySolarRadiationKwhM2": 4.4704
@@ -1128,6 +1257,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 14.45,
+          "averageDailyMaximumTemperatureCelsius": 25.84,
           "meanDailyPrecipitationMm": 1.82,
           "meanMonthlyPrecipitationMm": 54.6,
           "meanDailySolarRadiationKwhM2": 5.7566
@@ -1136,6 +1266,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 19.38,
+          "averageDailyMaximumTemperatureCelsius": 30.81,
           "meanDailyPrecipitationMm": 1.37,
           "meanMonthlyPrecipitationMm": 42.47,
           "meanDailySolarRadiationKwhM2": 6.8364
@@ -1144,6 +1275,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 24.5,
+          "averageDailyMaximumTemperatureCelsius": 36.25,
           "meanDailyPrecipitationMm": 0.51,
           "meanMonthlyPrecipitationMm": 15.3,
           "meanDailySolarRadiationKwhM2": 7.7763
@@ -1152,6 +1284,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 28.43,
+          "averageDailyMaximumTemperatureCelsius": 39.15,
           "meanDailyPrecipitationMm": 0.23,
           "meanMonthlyPrecipitationMm": 7.13,
           "meanDailySolarRadiationKwhM2": 7.8144
@@ -1160,6 +1293,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 28.8,
+          "averageDailyMaximumTemperatureCelsius": 39.22,
           "meanDailyPrecipitationMm": 0.19,
           "meanMonthlyPrecipitationMm": 5.89,
           "meanDailySolarRadiationKwhM2": 6.9275
@@ -1168,6 +1302,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 24.79,
+          "averageDailyMaximumTemperatureCelsius": 36.7,
           "meanDailyPrecipitationMm": 0.68,
           "meanMonthlyPrecipitationMm": 20.4,
           "meanDailySolarRadiationKwhM2": 5.7111
@@ -1176,6 +1311,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 19.39,
+          "averageDailyMaximumTemperatureCelsius": 31.48,
           "meanDailyPrecipitationMm": 2.01,
           "meanMonthlyPrecipitationMm": 62.31,
           "meanDailySolarRadiationKwhM2": 4.0503
@@ -1184,6 +1320,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 13.37,
+          "averageDailyMaximumTemperatureCelsius": 24.69,
           "meanDailyPrecipitationMm": 3,
           "meanMonthlyPrecipitationMm": 90,
           "meanDailySolarRadiationKwhM2": 2.8434
@@ -1192,6 +1329,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 8.94,
+          "averageDailyMaximumTemperatureCelsius": 18.31,
           "meanDailyPrecipitationMm": 5.31,
           "meanMonthlyPrecipitationMm": 164.61,
           "meanDailySolarRadiationKwhM2": 2.1504
@@ -1200,12 +1338,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=30.7133&latitude=36.8969&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=30.7133&latitude=36.8969&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -1225,10 +1368,11 @@
       "dataSources": [
         "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -1258,6 +1402,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 20.1,
+          "averageDailyMaximumTemperatureCelsius": 26.87,
           "meanDailyPrecipitationMm": 0.76,
           "meanMonthlyPrecipitationMm": 23.56,
           "meanDailySolarRadiationKwhM2": 3.8013
@@ -1266,6 +1411,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 20.7,
+          "averageDailyMaximumTemperatureCelsius": 29.06,
           "meanDailyPrecipitationMm": 0.39,
           "meanMonthlyPrecipitationMm": 10.92,
           "meanDailySolarRadiationKwhM2": 4.5898
@@ -1274,6 +1420,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 22.9,
+          "averageDailyMaximumTemperatureCelsius": 32.42,
           "meanDailyPrecipitationMm": 0.59,
           "meanMonthlyPrecipitationMm": 18.29,
           "meanDailySolarRadiationKwhM2": 5.3854
@@ -1282,6 +1429,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 26.6,
+          "averageDailyMaximumTemperatureCelsius": 35.95,
           "meanDailyPrecipitationMm": 0.24,
           "meanMonthlyPrecipitationMm": 7.2,
           "meanDailySolarRadiationKwhM2": 6.3875
@@ -1290,6 +1438,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 30.36,
+          "averageDailyMaximumTemperatureCelsius": 38.97,
           "meanDailyPrecipitationMm": 0.09,
           "meanMonthlyPrecipitationMm": 2.79,
           "meanDailySolarRadiationKwhM2": 7.1855
@@ -1298,6 +1447,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 32.92,
+          "averageDailyMaximumTemperatureCelsius": 41.18,
           "meanDailyPrecipitationMm": 0.08,
           "meanMonthlyPrecipitationMm": 2.4,
           "meanDailySolarRadiationKwhM2": 7.2876
@@ -1306,6 +1456,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 34.81,
+          "averageDailyMaximumTemperatureCelsius": 42.47,
           "meanDailyPrecipitationMm": 0.04,
           "meanMonthlyPrecipitationMm": 1.24,
           "meanDailySolarRadiationKwhM2": 6.7867
@@ -1314,6 +1465,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 35.35,
+          "averageDailyMaximumTemperatureCelsius": 42.31,
           "meanDailyPrecipitationMm": 0.04,
           "meanMonthlyPrecipitationMm": 1.24,
           "meanDailySolarRadiationKwhM2": 6.4861
@@ -1322,6 +1474,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 33.33,
+          "averageDailyMaximumTemperatureCelsius": 40.55,
           "meanDailyPrecipitationMm": 0.06,
           "meanMonthlyPrecipitationMm": 1.8,
           "meanDailySolarRadiationKwhM2": 6.0116
@@ -1330,6 +1483,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 30.47,
+          "averageDailyMaximumTemperatureCelsius": 37.22,
           "meanDailyPrecipitationMm": 0.04,
           "meanMonthlyPrecipitationMm": 1.24,
           "meanDailySolarRadiationKwhM2": 5.1738
@@ -1338,6 +1492,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 26.42,
+          "averageDailyMaximumTemperatureCelsius": 33.15,
           "meanDailyPrecipitationMm": 0.22,
           "meanMonthlyPrecipitationMm": 6.6,
           "meanDailySolarRadiationKwhM2": 4.239
@@ -1346,6 +1501,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 22.44,
+          "averageDailyMaximumTemperatureCelsius": 28.78,
           "meanDailyPrecipitationMm": 0.45,
           "meanMonthlyPrecipitationMm": 13.95,
           "meanDailySolarRadiationKwhM2": 3.6356
@@ -1354,12 +1510,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=55.2708&latitude=25.2048&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=55.2708&latitude=25.2048&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -1377,12 +1538,13 @@
       },
       "apiVersion": "v2.10.1",
       "dataSources": [
+        "SRB",
         "SYN1DEG",
         "MERRA2",
-        "SRB"
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   },
   {
@@ -1412,6 +1574,7 @@
           "month": 1,
           "label": "January",
           "meanTemperatureCelsius": 20.03,
+          "averageDailyMaximumTemperatureCelsius": 25.53,
           "meanDailyPrecipitationMm": 0.39,
           "meanMonthlyPrecipitationMm": 12.09,
           "meanDailySolarRadiationKwhM2": 8.3787
@@ -1420,6 +1583,7 @@
           "month": 2,
           "label": "February",
           "meanTemperatureCelsius": 20.3,
+          "averageDailyMaximumTemperatureCelsius": 26.19,
           "meanDailyPrecipitationMm": 0.35,
           "meanMonthlyPrecipitationMm": 9.8,
           "meanDailySolarRadiationKwhM2": 7.497
@@ -1428,6 +1592,7 @@
           "month": 3,
           "label": "March",
           "meanTemperatureCelsius": 19.37,
+          "averageDailyMaximumTemperatureCelsius": 25.17,
           "meanDailyPrecipitationMm": 0.52,
           "meanMonthlyPrecipitationMm": 16.12,
           "meanDailySolarRadiationKwhM2": 6.103
@@ -1436,6 +1601,7 @@
           "month": 4,
           "label": "April",
           "meanTemperatureCelsius": 17.73,
+          "averageDailyMaximumTemperatureCelsius": 23.99,
           "meanDailyPrecipitationMm": 1.24,
           "meanMonthlyPrecipitationMm": 37.2,
           "meanDailySolarRadiationKwhM2": 4.4713
@@ -1444,6 +1610,7 @@
           "month": 5,
           "label": "May",
           "meanTemperatureCelsius": 16.48,
+          "averageDailyMaximumTemperatureCelsius": 21.8,
           "meanDailyPrecipitationMm": 1.57,
           "meanMonthlyPrecipitationMm": 48.67,
           "meanDailySolarRadiationKwhM2": 3.1436
@@ -1452,6 +1619,7 @@
           "month": 6,
           "label": "June",
           "meanTemperatureCelsius": 15.06,
+          "averageDailyMaximumTemperatureCelsius": 19.41,
           "meanDailyPrecipitationMm": 2.77,
           "meanMonthlyPrecipitationMm": 83.1,
           "meanDailySolarRadiationKwhM2": 2.6157
@@ -1460,6 +1628,7 @@
           "month": 7,
           "label": "July",
           "meanTemperatureCelsius": 14.34,
+          "averageDailyMaximumTemperatureCelsius": 18.6,
           "meanDailyPrecipitationMm": 2.43,
           "meanMonthlyPrecipitationMm": 75.33,
           "meanDailySolarRadiationKwhM2": 2.9083
@@ -1468,6 +1637,7 @@
           "month": 8,
           "label": "August",
           "meanTemperatureCelsius": 14.27,
+          "averageDailyMaximumTemperatureCelsius": 18.98,
           "meanDailyPrecipitationMm": 2.12,
           "meanMonthlyPrecipitationMm": 65.72,
           "meanDailySolarRadiationKwhM2": 3.7184
@@ -1476,6 +1646,7 @@
           "month": 9,
           "label": "September",
           "meanTemperatureCelsius": 14.94,
+          "averageDailyMaximumTemperatureCelsius": 20.95,
           "meanDailyPrecipitationMm": 1.3,
           "meanMonthlyPrecipitationMm": 39,
           "meanDailySolarRadiationKwhM2": 5.0586
@@ -1484,6 +1655,7 @@
           "month": 10,
           "label": "October",
           "meanTemperatureCelsius": 16.17,
+          "averageDailyMaximumTemperatureCelsius": 22.64,
           "meanDailyPrecipitationMm": 0.98,
           "meanMonthlyPrecipitationMm": 30.38,
           "meanDailySolarRadiationKwhM2": 6.5982
@@ -1492,6 +1664,7 @@
           "month": 11,
           "label": "November",
           "meanTemperatureCelsius": 17.43,
+          "averageDailyMaximumTemperatureCelsius": 23.59,
           "meanDailyPrecipitationMm": 0.89,
           "meanMonthlyPrecipitationMm": 26.7,
           "meanDailySolarRadiationKwhM2": 7.7729
@@ -1500,6 +1673,7 @@
           "month": 12,
           "label": "December",
           "meanTemperatureCelsius": 19.09,
+          "averageDailyMaximumTemperatureCelsius": 24.57,
           "meanDailyPrecipitationMm": 0.42,
           "meanMonthlyPrecipitationMm": 13.02,
           "meanDailySolarRadiationKwhM2": 8.4138
@@ -1508,12 +1682,17 @@
     },
     "source": {
       "name": "NASA POWER",
-      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=18.4241&latitude=-33.9249&format=JSON&start=1991&end=2020",
+      "apiUrl": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX_AVG%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=18.4241&latitude=-33.9249&format=JSON&start=1991&end=2020",
       "documentationUrl": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
       "parameters": {
         "temperature": {
           "code": "T2M",
           "name": "Temperature at 2 Meters",
+          "unit": "°C"
+        },
+        "averageDailyMaximumTemperature": {
+          "code": "T2M_MAX_AVG",
+          "name": "Temperature at 2 Meters Maximum Average",
           "unit": "°C"
         },
         "precipitation": {
@@ -1531,12 +1710,13 @@
       },
       "apiVersion": "v2.10.1",
       "dataSources": [
-        "SRB",
         "SYN1DEG",
-        "MERRA2"
+        "SRB",
+        "MERRA2",
+        "POWER"
       ],
       "fillValue": -999,
-      "retrievedAt": "2026-10-21"
+      "retrievedAt": "2026-10-22"
     }
   }
 ]

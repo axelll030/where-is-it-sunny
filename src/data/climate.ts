@@ -2,6 +2,7 @@ export interface MonthlyTemperature {
   month: number;
   label: string;
   meanTemperatureCelsius: number;
+  averageDailyMaximumTemperatureCelsius: number;
   meanDailyPrecipitationMm: number;
   meanMonthlyPrecipitationMm: number;
   meanDailySolarRadiationKwhM2: number;
@@ -37,6 +38,7 @@ export interface DestinationClimate {
     documentationUrl: string;
     parameters: {
       temperature: { code: 'T2M'; name: string; unit: '°C' };
+      averageDailyMaximumTemperature: { code: 'T2M_MAX_AVG'; name: string; unit: '°C' };
       precipitation: {
         code: 'PRECTOTCORR';
         name: string;
